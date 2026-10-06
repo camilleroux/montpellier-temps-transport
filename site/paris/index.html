@@ -93,7 +93,7 @@
               "name": "Quelle est la fréquence des lignes de métro, RER, Transilien et tram à Paris ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de métro 1 : 2,2 min, métro 2 : 2,5 min, métro 3 : 2,5 min, métro 4 : 2,4 min, métro 5 : 2,4 min, métro 6 : 2,5 min, métro 7 : 2,4 min, métro 8 : 3,1 min, métro 9 : 2,5 min, métro 10 : 3,7 min, métro 11 : 2,6 min, métro 12 : 2,8 min, métro 13 : 2,2 min, métro 14 : 2,3 min, métro 3B : 3,8 min, métro 7B : 4,7 min, tram T1 : 5,4 min, tram T2 : 4,7 min, tram T4 : 8,1 min, tram T5 : 4,4 min, tram T6 : 5,2 min, tram T7 : 7,4 min, tram T8 : 9 min, tram T9 : 4,8 min, tram T10 : 7,6 min, tram T11 : 6,7 min, tram T12 : 11,9 min, tram T3a : 4,3 min, tram T3b : 4,9 min, téléphérique C1 : 2 min, rer A : 5,3 min, rer B : 5,7 min, rer C : 11,3 min, rer D : 6,6 min, rer E : 12,4 min, train H : 13,2 min, train J : 12,3 min, train K : 30 min, train L : 13,1 min, train N : 15 min, train P : 24 min, train U : 20,5 min, train V : 10 min. La ligne la plus fréquente est la C1, avec un passage toutes les 2 minutes environ."
+                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de métro 1 : 2,3 min, métro 2 : 2,5 min, métro 3 : 2,5 min, métro 4 : 2,4 min, métro 5 : 2,4 min, métro 6 : 2,5 min, métro 7 : 2,4 min, métro 8 : 3,1 min, métro 9 : 2,5 min, métro 10 : 3,7 min, métro 11 : 2,6 min, métro 12 : 2,8 min, métro 13 : 2,2 min, métro 14 : 2,3 min, métro 3B : 3,8 min, métro 7B : 4,7 min, tram T1 : 5,4 min, tram T2 : 4,7 min, tram T4 : 8,1 min, tram T5 : 4,7 min, tram T6 : 5,2 min, tram T7 : 7,4 min, tram T8 : 9 min, tram T9 : 4,8 min, tram T10 : 7,6 min, tram T11 : 6,7 min, tram T12 : 11,9 min, tram T3a : 4,3 min, tram T3b : 4,9 min, téléphérique C1 : 2 min, rer A : 5,3 min, rer B : 5,7 min, rer C : 11,3 min, rer D : 6,6 min, rer E : 12,4 min, train H : 13,2 min, train J : 12,3 min, train K : 30 min, train L : 13,1 min, train N : 15 min, train P : 23,3 min, train U : 20,5 min, train V : 10 min. La ligne la plus fréquente est la C1, avec un passage toutes les 2 minutes environ."
               }
             },
             {
@@ -101,7 +101,7 @@
               "name": "D'où viennent les horaires utilisés ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Des horaires théoriques publiés par le réseau Île-de-France Mobilités (format GTFS, Licence Mobilités), téléchargés le 5 octobre 2026 et valables jusqu'au 2 novembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h."
+                "text": "Des horaires théoriques publiés par le réseau Île-de-France Mobilités (format GTFS, Licence Mobilités), téléchargés le 5 octobre 2026 et valables jusqu'au 2 novembre 2026. Les temps correspondent au jeudi 8 octobre 2026, entre 7 h et 20 h."
               }
             },
             {
@@ -160,10 +160,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" />
-    <link rel="stylesheet" href="../styles.css?v=9e078b8e" />
+    <link rel="stylesheet" href="../styles.css?v=44a58569" />
   </head>
   <body>
-    <script id="city-config" type="application/json">{"slug": "paris", "name": "Paris", "dataVersion": "af1fa5b0", "defaultFrom": {"lat": 48.85843, "lon": 2.34723, "label": "Châtelet"}, "railNoun": "métro, RER, Transilien et tram", "railStations": "stations de métro, de RER, de Transilien et de tram", "busNoun": "bus", "geocoder": "ban", "searchBbox": [48.64, 2.03, 49.08, 2.67]}</script>
+    <script id="city-config" type="application/json">{"slug": "paris", "name": "Paris", "dataVersion": "7f23c86f", "defaultFrom": {"lat": 48.85843, "lon": 2.34723, "label": "Châtelet"}, "railNoun": "métro, RER, Transilien et tram", "railStations": "stations de métro, de RER, de Transilien et de tram", "busNoun": "bus", "geocoder": "ban", "searchBbox": [48.64, 2.03, 49.08, 2.67]}</script>
     <header class="topbar">
       <nav class="topbar-inner" aria-label="Navigation principale">
         <a class="brand" href="../"><img src="../favicon.svg" width="22" height="22" alt="" /> À portée de tram</a>
@@ -278,6 +278,8 @@
             <button id="fullscreen" type="button" class="icon-button" aria-label="Plein écran">⤢</button>
           </div>
 
+          <label class="pill-toggle map-bus"><input id="busToggleMap" type="checkbox" /> Ajouter les bus</label>
+
           <div class="legend" aria-hidden="true">
             <div id="legendBar" class="legend-bar"></div>
             <div class="legend-labels"><span>0</span><span id="legendMid"></span><span id="legendMax"></span></div>
@@ -323,7 +325,7 @@
           <caption>Lignes de métro, RER, Transilien et tram du réseau Île-de-France Mobilités, en journée de semaine</caption>
           <thead><tr><th scope="col">Ligne</th><th scope="col">Stations</th><th scope="col">Un passage toutes les</th></tr></thead>
           <tbody>
-            <tr><td><span class="line-badge" style="background:#FFBE00;color:#111">1</span> Métro</td><td>25</td><td>~2,2 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#FFBE00;color:#111">1</span> Métro</td><td>25</td><td>~2,3 min</td></tr>
             <tr><td><span class="line-badge" style="background:#0055C8;color:#fff">2</span> Métro</td><td>25</td><td>~2,5 min</td></tr>
             <tr><td><span class="line-badge" style="background:#6E6E00;color:#fff">3</span> Métro</td><td>25</td><td>~2,5 min</td></tr>
             <tr><td><span class="line-badge" style="background:#A0006E;color:#fff">4</span> Métro</td><td>29</td><td>~2,4 min</td></tr>
@@ -342,7 +344,7 @@
             <tr><td><span class="line-badge" style="background:#0055C8;color:#fff">T1</span> Tram</td><td>37</td><td>~5,4 min</td></tr>
             <tr><td><span class="line-badge" style="background:#A0006E;color:#fff">T2</span> Tram</td><td>24</td><td>~4,7 min</td></tr>
             <tr><td><span class="line-badge" style="background:#DC9600;color:#111">T4</span> Tram</td><td>20</td><td>~8,1 min</td></tr>
-            <tr><td><span class="line-badge" style="background:#640082;color:#fff">T5</span> Tram</td><td>16</td><td>~4,4 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#640082;color:#fff">T5</span> Tram</td><td>16</td><td>~4,7 min</td></tr>
             <tr><td><span class="line-badge" style="background:#FF0000;color:#fff">T6</span> Tram</td><td>21</td><td>~5,2 min</td></tr>
             <tr><td><span class="line-badge" style="background:#6E491E;color:#fff">T7</span> Tram</td><td>18</td><td>~7,4 min</td></tr>
             <tr><td><span class="line-badge" style="background:#6E6E00;color:#fff">T8</span> Tram</td><td>17</td><td>~9 min</td></tr>
@@ -363,7 +365,7 @@
             <tr><td><span class="line-badge" style="background:#9B9842;color:#fff">K</span> Train</td><td>2</td><td>~30 min</td></tr>
             <tr><td><span class="line-badge" style="background:#C4A4CC;color:#111">L</span> Train</td><td>22</td><td>~13,1 min</td></tr>
             <tr><td><span class="line-badge" style="background:#00B297;color:#fff">N</span> Train</td><td>8</td><td>~15 min</td></tr>
-            <tr><td><span class="line-badge" style="background:#F58F53;color:#111">P</span> Train</td><td>2</td><td>~24 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#F58F53;color:#111">P</span> Train</td><td>2</td><td>~23,3 min</td></tr>
             <tr><td><span class="line-badge" style="background:#B6134C;color:#fff">U</span> Train</td><td>6</td><td>~20,5 min</td></tr>
             <tr><td><span class="line-badge" style="background:#9F9825;color:#fff">V</span> Train</td><td>5</td><td>~10 min</td></tr>
           </tbody>
@@ -382,8 +384,8 @@
       <section class="section" aria-labelledby="faq-title">
         <h2 id="faq-title">Questions fréquentes</h2>
         <details class="faq"><summary>Combien de temps faut-il pour traverser Paris en métro, RER, Transilien et tram ?</summary><p>Depuis le centre (Châtelet), 17 % des stations de métro, de RER, de Transilien et de tram sont à moins de 15 minutes et 63 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Hôpital de Montfermeil, est à environ 71 minutes.</p></details>
-        <details class="faq"><summary>Quelle est la fréquence des lignes de métro, RER, Transilien et tram à Paris ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro 1 : 2,2 min, métro 2 : 2,5 min, métro 3 : 2,5 min, métro 4 : 2,4 min, métro 5 : 2,4 min, métro 6 : 2,5 min, métro 7 : 2,4 min, métro 8 : 3,1 min, métro 9 : 2,5 min, métro 10 : 3,7 min, métro 11 : 2,6 min, métro 12 : 2,8 min, métro 13 : 2,2 min, métro 14 : 2,3 min, métro 3B : 3,8 min, métro 7B : 4,7 min, tram T1 : 5,4 min, tram T2 : 4,7 min, tram T4 : 8,1 min, tram T5 : 4,4 min, tram T6 : 5,2 min, tram T7 : 7,4 min, tram T8 : 9 min, tram T9 : 4,8 min, tram T10 : 7,6 min, tram T11 : 6,7 min, tram T12 : 11,9 min, tram T3a : 4,3 min, tram T3b : 4,9 min, téléphérique C1 : 2 min, rer A : 5,3 min, rer B : 5,7 min, rer C : 11,3 min, rer D : 6,6 min, rer E : 12,4 min, train H : 13,2 min, train J : 12,3 min, train K : 30 min, train L : 13,1 min, train N : 15 min, train P : 24 min, train U : 20,5 min, train V : 10 min. La ligne la plus fréquente est la C1, avec un passage toutes les 2 minutes environ.</p></details>
-        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau Île-de-France Mobilités (format GTFS, Licence Mobilités), téléchargés le 5 octobre 2026 et valables jusqu&#x27;au 2 novembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h.</p></details>
+        <details class="faq"><summary>Quelle est la fréquence des lignes de métro, RER, Transilien et tram à Paris ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro 1 : 2,3 min, métro 2 : 2,5 min, métro 3 : 2,5 min, métro 4 : 2,4 min, métro 5 : 2,4 min, métro 6 : 2,5 min, métro 7 : 2,4 min, métro 8 : 3,1 min, métro 9 : 2,5 min, métro 10 : 3,7 min, métro 11 : 2,6 min, métro 12 : 2,8 min, métro 13 : 2,2 min, métro 14 : 2,3 min, métro 3B : 3,8 min, métro 7B : 4,7 min, tram T1 : 5,4 min, tram T2 : 4,7 min, tram T4 : 8,1 min, tram T5 : 4,7 min, tram T6 : 5,2 min, tram T7 : 7,4 min, tram T8 : 9 min, tram T9 : 4,8 min, tram T10 : 7,6 min, tram T11 : 6,7 min, tram T12 : 11,9 min, tram T3a : 4,3 min, tram T3b : 4,9 min, téléphérique C1 : 2 min, rer A : 5,3 min, rer B : 5,7 min, rer C : 11,3 min, rer D : 6,6 min, rer E : 12,4 min, train H : 13,2 min, train J : 12,3 min, train K : 30 min, train L : 13,1 min, train N : 15 min, train P : 23,3 min, train U : 20,5 min, train V : 10 min. La ligne la plus fréquente est la C1, avec un passage toutes les 2 minutes environ.</p></details>
+        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau Île-de-France Mobilités (format GTFS, Licence Mobilités), téléchargés le 5 octobre 2026 et valables jusqu&#x27;au 2 novembre 2026. Les temps correspondent au jeudi 8 octobre 2026, entre 7 h et 20 h.</p></details>
         <details class="faq"><summary>Les bus sont-ils pris en compte à Paris ?</summary><p>Oui, en option : cochez « Bus » sous la carte. Par défaut, seuls les métro, RER, Transilien et tram sont affichés. L&#x27;attente aux arrêts de bus peu fréquentés est plafonnée à 15 minutes.</p></details>
         <details class="faq"><summary>Comment les temps de trajet sont-ils calculés ?</summary><p>Pour chaque trajet : marche jusqu&#x27;à l&#x27;arrêt à 4,5 km/h, attente égale à la moitié de l&#x27;intervalle entre deux passages, durée prévue entre les arrêts, correspondances avec 1,5 minute de marche, et 1 minute pour rejoindre le quai du métro. Pas de temps réel ni de perturbations : c&#x27;est la ville « sur le papier ».</p></details>
         <details class="faq"><summary>Qui a réalisé cette carte de Paris ?</summary><p>L'idée vient du <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio, adapté ensuite à Paris par Jules Grandin (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>). Ces cartes sont réalisées par <a href="https://www.camilleroux.com/" rel="author">Camille Roux</a>, développeur et co-fondateur de Human Coders à Montpellier&nbsp;: découvrez <a href="https://www.camilleroux.com/realisations/">ses autres réalisations</a> et <a href="https://www.camilleroux.com/veille/">sa veille tech hebdomadaire</a>. Le code est ouvert sur <a href="https://github.com/camilleroux/montpellier-temps-transport">GitHub</a>.</p></details>
@@ -617,7 +619,7 @@
     </footer>
 
     <div id="toast" class="toast" role="status" hidden></div>
-    <script type="module" src="../app.js?v=f75d97de"></script>
+    <script type="module" src="../app.js?v=34af2a7e"></script>
     <!-- Cloudflare Web Analytics (sans cookie). "spa": false : les mises à jour de l'URL ne comptent pas comme des pages vues. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1904c17ed0624c0cab4d69ea1bacc5e7", "spa": false}'></script>
   </body>

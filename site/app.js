@@ -1076,7 +1076,7 @@ function syncUrl() {
 function restoreFromUrl() {
   const params = new URLSearchParams(location.search);
   app.includeBus = params.get("bus") === "1";
-  $("busToggle").checked = app.includeBus;
+  $("busToggle").checked = $("busToggleMap").checked = app.includeBus;
   const max = Number(params.get("max"));
   if (max >= 20 && max <= 90) app.maxMinutes = max;
   $("maxRange").value = String(app.maxMinutes);
@@ -1266,11 +1266,15 @@ $("fullscreen").addEventListener("click", () => {
   else stage.requestFullscreen?.();
 });
 
-$("busToggle").addEventListener("change", (event) => {
-  app.includeBus = event.target.checked;
-  recompute();
-  syncUrl();
-});
+// La même option sous la carte et sur la carte, où elle se voit sans faire défiler.
+for (const id of ["busToggle", "busToggleMap"]) {
+  $(id).addEventListener("change", (event) => {
+    app.includeBus = event.target.checked;
+    $("busToggle").checked = $("busToggleMap").checked = app.includeBus;
+    recompute();
+    syncUrl();
+  });
+}
 
 $("isoToggles").addEventListener("change", () => {
   app.isochrones = [...$("isoToggles").querySelectorAll("input:checked")].map((input) => Number(input.value));

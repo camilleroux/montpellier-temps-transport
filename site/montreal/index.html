@@ -101,7 +101,7 @@
               "name": "D'où viennent les horaires utilisés ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Des horaires théoriques publiés par le réseau STM et REM (format GTFS, CC BY 4.0), téléchargés le 6 octobre 2026 et valables jusqu'au 31 décembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h."
+                "text": "Des horaires théoriques publiés par le réseau STM et REM (format GTFS, CC BY 4.0), téléchargés le 6 octobre 2026 et valables jusqu'au 31 décembre 2026. Les temps correspondent au jeudi 8 octobre 2026, entre 7 h et 20 h."
               }
             },
             {
@@ -160,10 +160,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" />
-    <link rel="stylesheet" href="../styles.css?v=9e078b8e" />
+    <link rel="stylesheet" href="../styles.css?v=44a58569" />
   </head>
   <body>
-    <script id="city-config" type="application/json">{"slug": "montreal", "name": "Montréal", "dataVersion": "330be93f", "defaultFrom": {"lat": 45.5156, "lon": -73.562, "label": "Place Émilie-Gamelin"}, "railNoun": "métro", "railStations": "stations de métro", "busNoun": "bus", "geocoder": "photon", "searchBbox": [45.38, -74.0, 45.72, -73.38]}</script>
+    <script id="city-config" type="application/json">{"slug": "montreal", "name": "Montréal", "dataVersion": "ac868812", "defaultFrom": {"lat": 45.5156, "lon": -73.562, "label": "Place Émilie-Gamelin"}, "railNoun": "métro", "railStations": "stations de métro", "busNoun": "bus", "geocoder": "photon", "searchBbox": [45.38, -74.0, 45.72, -73.38]}</script>
     <header class="topbar">
       <nav class="topbar-inner" aria-label="Navigation principale">
         <a class="brand" href="../"><img src="../favicon.svg" width="22" height="22" alt="" /> À portée de tram</a>
@@ -269,6 +269,8 @@
             <button id="fullscreen" type="button" class="icon-button" aria-label="Plein écran">⤢</button>
           </div>
 
+          <label class="pill-toggle map-bus"><input id="busToggleMap" type="checkbox" /> Ajouter les bus</label>
+
           <div class="legend" aria-hidden="true">
             <div id="legendBar" class="legend-bar"></div>
             <div class="legend-labels"><span>0</span><span id="legendMid"></span><span id="legendMax"></span></div>
@@ -328,7 +330,7 @@
         <h2 id="faq-title">Questions fréquentes</h2>
         <details class="faq"><summary>Combien de temps faut-il pour traverser Montréal en métro ?</summary><p>Depuis le centre (Place Émilie-Gamelin), 34 % des stations de métro sont à moins de 15 minutes et 88 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Anse-à-l&#x27;Orme, est à environ 48 minutes.</p></details>
         <details class="faq"><summary>Quelle est la fréquence des lignes de métro à Montréal ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro 1 : 4,3 min, métro 2 : 4,3 min, métro 4 : 6,8 min, métro 5 : 5,7 min, métro REM : 4,8 min. La ligne la plus fréquente est la 1, avec un passage toutes les 4,3 minutes environ.</p></details>
-        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau STM et REM (format GTFS, CC BY 4.0), téléchargés le 6 octobre 2026 et valables jusqu&#x27;au 31 décembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h.</p></details>
+        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau STM et REM (format GTFS, CC BY 4.0), téléchargés le 6 octobre 2026 et valables jusqu&#x27;au 31 décembre 2026. Les temps correspondent au jeudi 8 octobre 2026, entre 7 h et 20 h.</p></details>
         <details class="faq"><summary>Les bus sont-ils pris en compte à Montréal ?</summary><p>Oui, en option : cochez « Bus » sous la carte. Par défaut, seuls les métro sont affichés. L&#x27;attente aux arrêts de bus peu fréquentés est plafonnée à 15 minutes.</p></details>
         <details class="faq"><summary>Comment les temps de trajet sont-ils calculés ?</summary><p>Pour chaque trajet : marche jusqu&#x27;à l&#x27;arrêt à 4,5 km/h, attente égale à la moitié de l&#x27;intervalle entre deux passages, durée prévue entre les arrêts, correspondances avec 1,5 minute de marche, et 1 minute pour rejoindre le quai du métro. Pas de temps réel ni de perturbations : c&#x27;est la ville « sur le papier ».</p></details>
         <details class="faq"><summary>Qui a réalisé cette carte de Montréal ?</summary><p>L'idée vient du <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio, adapté ensuite à Paris par Jules Grandin (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>). Ces cartes sont réalisées par <a href="https://www.camilleroux.com/" rel="author">Camille Roux</a>, développeur et co-fondateur de Human Coders à Montpellier&nbsp;: découvrez <a href="https://www.camilleroux.com/realisations/">ses autres réalisations</a> et <a href="https://www.camilleroux.com/veille/">sa veille tech hebdomadaire</a>. Le code est ouvert sur <a href="https://github.com/camilleroux/montpellier-temps-transport">GitHub</a>.</p></details>
@@ -562,7 +564,7 @@
     </footer>
 
     <div id="toast" class="toast" role="status" hidden></div>
-    <script type="module" src="../app.js?v=f75d97de"></script>
+    <script type="module" src="../app.js?v=34af2a7e"></script>
     <!-- Cloudflare Web Analytics (sans cookie). "spa": false : les mises à jour de l'URL ne comptent pas comme des pages vues. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1904c17ed0624c0cab4d69ea1bacc5e7", "spa": false}'></script>
   </body>

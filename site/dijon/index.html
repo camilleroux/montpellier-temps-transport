@@ -160,7 +160,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" />
-    <link rel="stylesheet" href="../styles.css?v=9e078b8e" />
+    <link rel="stylesheet" href="../styles.css?v=44a58569" />
   </head>
   <body>
     <script id="city-config" type="application/json">{"slug": "dijon", "name": "Dijon", "dataVersion": "046b2e2c", "defaultFrom": {"lat": 47.32339, "lon": 5.0337, "label": "Place Darcy"}, "railNoun": "tram", "railStations": "stations de tram", "busNoun": "bus", "geocoder": "ban", "searchBbox": [47.1, 4.71, 47.54, 5.35]}</script>
@@ -268,6 +268,8 @@
             <button id="recenter" type="button" class="icon-button" aria-label="Recentrer la carte">⌖</button>
             <button id="fullscreen" type="button" class="icon-button" aria-label="Plein écran">⤢</button>
           </div>
+
+          <label class="pill-toggle map-bus"><input id="busToggleMap" type="checkbox" /> Ajouter les bus</label>
 
           <div class="legend" aria-hidden="true">
             <div id="legendBar" class="legend-bar"></div>
@@ -567,7 +569,7 @@
     </footer>
 
     <div id="toast" class="toast" role="status" hidden></div>
-    <script type="module" src="../app.js?v=f75d97de"></script>
+    <script type="module" src="../app.js?v=34af2a7e"></script>
     <!-- Cloudflare Web Analytics (sans cookie). "spa": false : les mises à jour de l'URL ne comptent pas comme des pages vues. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1904c17ed0624c0cab4d69ea1bacc5e7", "spa": false}'></script>
   </body>

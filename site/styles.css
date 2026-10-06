@@ -651,6 +651,14 @@ h1 {
   gap: 6px;
 }
 
+.map-bus {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow);
+}
+
 .legend {
   position: absolute;
   left: 14px;
@@ -1369,6 +1377,16 @@ output {
   .map-buttons {
     top: 10px;
     right: 10px;
+  }
+
+  /* L'itinéraire passe sous la carte : le bouton remonte sous la légende. */
+  .map-bus {
+    top: 62px;
+    right: auto;
+    bottom: auto;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
   }
 
   .control-group.actions {

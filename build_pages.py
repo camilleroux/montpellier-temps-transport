@@ -470,6 +470,7 @@ def render_city(template: Template, cities: list[dict], city: dict) -> str:
         "rail_noun": esc(rail_noun),
         "rail_label": esc(city["railLabel"]),
         "bus_label": esc(city["busLabel"]),
+        "bus_noun": esc(city["busNoun"]),
         "search_example": esc(city["searchExample"]),
         "network": esc(city["network"]),
         "stat_tiles": stat_tiles,
