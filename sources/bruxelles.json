@@ -1,7 +1,7 @@
 {
   "city": "Bruxelles",
-  "builtAt": "2026-10-06T17:28:36+00:00",
-  "referenceDate": "2026-10-06",
+  "builtAt": "2026-10-06T22:28:16+00:00",
+  "referenceDate": "2026-10-08",
   "serviceWindow": "7h–20h",
   "gtfs": {
     "network": "STIB",

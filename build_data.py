@@ -818,11 +818,6 @@ def extract_network(data_dir: Path, city: dict):
         extra = half_headway(towards[b]) - half_headway(onward)
         return round(extra, 2) if extra >= 0.1 else 0.0
 
-    # Each ride: (median minutes, extra wait for a branch).
-    edges = {
-        (a, b, route_id): (max(MIN_RIDE_MINUTES, statistics.median(samples)), branch_wait(a, b, route_id))
-        for (a, b, route_id), samples in ride_samples.items()
-    }
     transfer_times = gtfs_transfer_times(transfer_rows, stop_routes, complex_of)
 
     served = {route_id for station in complexes for route_id in station["routes"]}
@@ -838,6 +833,15 @@ def extract_network(data_dir: Path, city: dict):
             or f"#{(row.get('route_color') or '888888').strip().lstrip('#') or '888888'}",
             "name": city.get("routeNames", {}).get(route_id) or row.get("route_short_name") or row.get("route_long_name") or route_id,
         }
+    # Each ride: (median minutes, extra wait for a branch). Only guided lines split into real branches: bus
+    # variants part and merge again all along their route, and charging each split would add up to absurd waits.
+    edges = {
+        (a, b, route_id): (
+            max(MIN_RIDE_MINUTES, statistics.median(samples)),
+            branch_wait(a, b, route_id) if route_info[route_id]["rail"] else 0.0,
+        )
+        for (a, b, route_id), samples in ride_samples.items()
+    }
     rail_shape_ids = {
         trip["shape_id"] for trip in trips.values() if route_info.get(trip["route_id"], {}).get("rail") and trip.get("shape_id")
     }

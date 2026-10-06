@@ -1,7 +1,7 @@
 {
   "city": "Montréal",
-  "builtAt": "2026-10-06T17:28:32+00:00",
-  "referenceDate": "2026-10-06",
+  "builtAt": "2026-10-06T22:28:12+00:00",
+  "referenceDate": "2026-10-08",
   "serviceWindow": "7h–20h",
   "gtfs": {
     "network": "STM et REM",

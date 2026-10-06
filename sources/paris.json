@@ -1,7 +1,7 @@
 {
   "city": "Paris",
-  "builtAt": "2026-10-06T15:23:46+00:00",
-  "referenceDate": "2026-10-06",
+  "builtAt": "2026-10-06T22:27:55+00:00",
+  "referenceDate": "2026-10-08",
   "serviceWindow": "7h–20h",
   "gtfs": {
     "network": "Île-de-France Mobilités",
@@ -61,14 +61,14 @@
   "excludedRoutes": [],
   "network": {
     "lines": {
-      "bus": 728,
+      "bus": 730,
       "metro": 16,
       "tram": 13,
       "rer": 5,
       "train": 8,
       "cable": 1
     },
-    "stops": 7593,
+    "stops": 7604,
     "railStations": 705
   },
   "stats": {
@@ -78,7 +78,7 @@
         "mode": "metro",
         "color": "#FFBE00",
         "stations": 25,
-        "headway": 2.2
+        "headway": 2.3
       },
       {
         "name": "2",
@@ -211,7 +211,7 @@
         "mode": "tram",
         "color": "#640082",
         "stations": 16,
-        "headway": 4.4
+        "headway": 4.7
       },
       {
         "name": "T6",
@@ -358,7 +358,7 @@
         "mode": "train",
         "color": "#F58F53",
         "stations": 2,
-        "headway": 24.0
+        "headway": 23.3
       },
       {
         "name": "U",
@@ -376,7 +376,7 @@
       }
     ],
     "railStations": 705,
-    "busLines": 728,
+    "busLines": 730,
     "center": "Châtelet",
     "within15": 17,
     "within30": 63,
