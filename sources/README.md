@@ -22,6 +22,7 @@ Généré par `build_pages.py` à partir des fiches `sources/<ville>.json`.
 | [Montréal](montreal.json) | STM et REM | CC BY 4.0 | 2026-10-06 | 2026-05-19 → 2026-12-31 | 2026-10-08 |
 | [Nantes](nantes.json) | Naolib | Licence Ouverte 2.0 | 2026-10-04 | 2026-09-28 → 2026-12-28 | 2026-11-03 |
 | [Nice](nice.json) | Lignes d'Azur | Licence Ouverte 2.0 | 2026-10-04 | 2026-09-17 → 2026-12-31 | 2026-11-03 |
+| [Nîmes](nimes.json) | Tango | Licence Ouverte 2.0 | 2026-10-07 | 2026-09-01 → 2026-12-31 | 2026-10-08 |
 | [Orléans](orleans.json) | TAO | Licence Ouverte 2.0 | 2026-10-06 | 2026-09-18 → 2027-01-03 | 2026-11-03 |
 | [Paris](paris.json) | Île-de-France Mobilités | Licence Mobilités | 2026-10-05 (à la main) | 2026-10-01 → 2026-11-02 | 2026-10-08 |
 | [Reims](reims.json) | Citura | Licence Ouverte 2.0 | 2026-10-04 | 2026-09-28 → 2026-11-01 | 2026-10-06 |

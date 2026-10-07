@@ -1,0 +1,79 @@
+{
+  "city": "Nîmes",
+  "builtAt": "2026-10-07T15:20:30+00:00",
+  "referenceDate": "2026-10-08",
+  "serviceWindow": "7h–20h",
+  "gtfs": {
+    "network": "Tango",
+    "dataset": "https://transport.data.gouv.fr/datasets/offre-de-transport-du-reseau-tango-de-nimes-metropole-gtfs-gtfs-rt",
+    "source": "https://www.data.gouv.fr/api/1/datasets/r/15aeb8a5-1cca-4bb9-ae5f-b6e67e4ff2ab",
+    "how": "download",
+    "fetchedAt": "2026-10-07T15:20:01+00:00",
+    "bytes": 5596471,
+    "sha256": "e1609e8935f8303081621e564b891874fef6e1c80ed164fe553967cb975bf33c",
+    "feedInfo": null,
+    "servicePeriod": [
+      "2026-09-01",
+      "2026-12-31"
+    ]
+  },
+  "communes": {
+    "metropole": "Nîmes Métropole",
+    "epci": "243000643",
+    "source": "https://geo.api.gouv.fr/epcis/243000643/communes?fields=nom,code&format=geojson&geometry=contour",
+    "how": "download",
+    "fetchedAt": "2026-10-07T15:20:01+00:00",
+    "bytes": 249882,
+    "sha256": "c09ac985441ff10869e6c145149295c7bbe461a18e209d6112d8bee12687b60b"
+  },
+  "openStreetMap": {
+    "licence": "ODbL, © contributeurs OpenStreetMap",
+    "osm_water_parks": {
+      "source": "Overpass API: [out:json][timeout:180];(relation[\"natural\"=\"water\"](43.61,4.04,44.05,4.68);way[\"natural\"=\"water\"](43.61,4.04,44.05,4.68);relation[\"leisure\"=\"park\"](43.77,4.28,43.89,4.44);way[\"leisure\"=\"park\"](43.77,4.28,43.89,4.44););out geom;",
+      "how": "download",
+      "fetchedAt": "2026-10-07T15:20:10+00:00",
+      "bytes": 6609979,
+      "sha256": "6c73f028a688b46d93dd58e316edefb6c4aeec237e70df44192afc70cadf1570"
+    }
+  },
+  "railGeometry": "GTFS shapes.txt",
+  "excludedRoutes": [],
+  "network": {
+    "lines": {
+      "bus": 78,
+      "bhns": 2
+    },
+    "stops": 648,
+    "railStations": 38
+  },
+  "stats": {
+    "lines": [
+      {
+        "name": "T1",
+        "mode": "bhns",
+        "color": "#F74902",
+        "stations": 14,
+        "headway": 7.3
+      },
+      {
+        "name": "T2",
+        "mode": "bhns",
+        "color": "#00436E",
+        "stations": 26,
+        "headway": 10.0
+      }
+    ],
+    "railStations": 38,
+    "busLines": 78,
+    "center": "Esplanade Charles-de-Gaulle",
+    "within15": 37,
+    "within30": 97,
+    "farthestStation": "CHU Caremeau",
+    "farthestMinutes": 30,
+    "ogTrip": {
+      "name": "Jean Moulin",
+      "lat": 43.84367,
+      "lon": 4.39021
+    }
+  }
+}

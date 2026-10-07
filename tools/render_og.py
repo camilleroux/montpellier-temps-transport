@@ -25,7 +25,7 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 OVERLAY = """<style>
   html, body { width: 1200px; height: 630px; overflow: hidden; margin: 0; }
-  .topbar, .hero, .breadcrumb, .controls, .reach, .section, .site-footer, .map-buttons, .segmented, .link-button { display: none !important; }
+  .topbar, .hero, .breadcrumb, .controls, .reach, .section, .site-footer, .map-buttons, .map-bus, .segmented, .link-button { display: none !important; }
   .page { max-width: none; padding: 0; }
   .map-card { border: 0; border-radius: 0; }
   .map-stage { height: 630px !important; min-height: 0; }

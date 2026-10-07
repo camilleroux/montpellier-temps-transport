@@ -1,0 +1,25 @@
+{
+  "slug": "nimes",
+  "order": 29,
+  "name": "Nîmes",
+  "title": "Nîmes à portée de Tram'bus",
+  "railNoun": "Tram'bus",
+  "railLabel": "Tram'bus",
+  "railStations": "stations de Tram'bus",
+  "network": "Tango",
+  "metropole": "Nîmes Métropole",
+  "epci": "243000643",
+  "communes": "served",
+  "gtfsUrl": "https://www.data.gouv.fr/api/1/datasets/r/15aeb8a5-1cca-4bb9-ae5f-b6e67e4ff2ab",
+  "gtfsDataset": "https://transport.data.gouv.fr/datasets/offre-de-transport-du-reseau-tango-de-nimes-metropole-gtfs-gtfs-rt",
+  "gtfsLicence": "lo",
+  "routeModes": {"T1": "bhns", "T2": "bhns"},
+  "stopNameRewrites": [[" T[12]$", ""]],
+  "defaultFrom": {
+    "lat": 43.83470,
+    "lon": 4.36000,
+    "label": "Esplanade Charles-de-Gaulle"
+  },
+  "searchExample": "Gare de Nîmes",
+  "published": "2026-10-07"
+}
