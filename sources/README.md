@@ -30,5 +30,5 @@ Généré par `build_pages.py` à partir des fiches `sources/<ville>.json`.
 | [Rouen](rouen.json) | Astuce | Licence Ouverte 2.0 | 2026-10-04 | 2026-10-04 → 2027-08-29 | 2026-10-06 |
 | [Saint-Étienne](saint-etienne.json) | STAS | Licence Ouverte 2.0 | 2026-10-04 | 2026-10-04 → 2026-12-20 | 2026-10-06 |
 | [Strasbourg](strasbourg.json) | CTS | Licence Ouverte 2.0 | 2026-10-04 | 2026-10-02 → 2027-03-31 | 2026-11-03 |
-| [Toulouse](toulouse.json) | Tisséo | ODbL | 2026-10-04 | 2026-10-02 → 2026-11-05 | 2026-10-06 |
+| [Toulouse](toulouse.json) | Tisséo | ODbL | 2026-10-07 | 2026-10-05 → 2026-11-08 | 2026-10-08 |
 | [Tours](tours.json) | Fil Bleu | Licence Ouverte 2.0 | 2026-10-04 | 2026-09-30 → 2027-01-01 | 2026-10-06 |

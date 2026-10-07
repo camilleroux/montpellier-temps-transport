@@ -22,7 +22,7 @@
     <meta property="og:title" content="Toulouse à portée de métro" />
     <meta property="og:description" content="Carte des temps de trajet en métro et tram à Toulouse : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau Tisséo)." />
     <meta property="og:url" content="https://tram.camilleroux.com/toulouse/" />
-    <meta property="og:image" content="https://tram.camilleroux.com/og/toulouse.jpg?v=ab9bce33" />
+    <meta property="og:image" content="https://tram.camilleroux.com/og/toulouse.jpg?v=7147b318" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Carte de Toulouse colorée selon le temps de trajet en métro et tram depuis la place du Capitole, avec les isochrones 15 et 30 minutes." />
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Toulouse à portée de métro" />
     <meta name="twitter:description" content="Carte des temps de trajet en métro et tram à Toulouse : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau Tisséo)." />
-    <meta name="twitter:image" content="https://tram.camilleroux.com/og/toulouse.jpg?v=ab9bce33" />
+    <meta name="twitter:image" content="https://tram.camilleroux.com/og/toulouse.jpg?v=7147b318" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -51,14 +51,14 @@
           },
           "spatialCoverage": {
             "@type": "Place",
-            "name": "Toulouse Métropole"
+            "name": "Toulouse Métropole, Sicoval, Muretain Agglo, Grand Ouest Toulousain et Coteaux Bellevue"
           },
           "isBasedOn": [
             "https://castrio.me/nyc/",
             "https://julesgrandin.github.io/paris-temps-transport/"
           ],
           "datePublished": "2026-10-05",
-          "dateModified": "2026-10-05"
+          "dateModified": "2026-10-07"
         },
         {
           "@type": "BreadcrumbList",
@@ -93,7 +93,7 @@
               "name": "Quelle est la fréquence des lignes de métro et tram à Toulouse ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de métro A : 2,6 min, métro B : 2 min, tram T1 : 5,1 min, téléphérique TELEO : 2 min. La ligne la plus fréquente est la B, avec un passage toutes les 2 minutes environ."
+                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de métro A : 2,5 min, métro B : 2 min, tram T1 : 5,1 min, téléphérique TELEO : 2 min. La ligne la plus fréquente est la B, avec un passage toutes les 2 minutes environ."
               }
             },
             {
@@ -101,7 +101,7 @@
               "name": "D'où viennent les horaires utilisés ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Des horaires théoriques publiés par le réseau Tisséo (format GTFS, ODbL), téléchargés le 4 octobre 2026 et valables jusqu'au 5 novembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h."
+                "text": "Des horaires théoriques publiés par le réseau Tisséo (format GTFS, ODbL), téléchargés le 7 octobre 2026 et valables jusqu'au 8 novembre 2026. Les temps correspondent au jeudi 8 octobre 2026, entre 7 h et 20 h."
               }
             },
             {
@@ -163,7 +163,7 @@
     <link rel="stylesheet" href="../styles.css?v=44a58569" />
   </head>
   <body>
-    <script id="city-config" type="application/json">{"slug": "toulouse", "name": "Toulouse", "dataVersion": "92be869d", "defaultFrom": {"lat": 43.6045, "lon": 1.444, "label": "Place du Capitole"}, "railNoun": "métro et tram", "railStations": "stations de métro et de tram", "busNoun": "bus", "geocoder": "ban", "searchBbox": [43.47, 1.18, 43.77, 1.6]}</script>
+    <script id="city-config" type="application/json">{"slug": "toulouse", "name": "Toulouse", "dataVersion": "0b5910ab", "defaultFrom": {"lat": 43.6045, "lon": 1.444, "label": "Place du Capitole"}, "railNoun": "métro et tram", "railStations": "stations de métro et de tram", "busNoun": "bus", "geocoder": "ban", "searchBbox": [43.36, 1.08, 43.8, 1.72]}</script>
     <header class="topbar">
       <nav class="topbar-inner" aria-label="Navigation principale">
         <a class="brand" href="../"><img src="../favicon.svg" width="22" height="22" alt="" /> À portée de tram</a>
@@ -219,7 +219,7 @@
         </div>
         <p class="lede">
           La ville redessinée par le temps qu'il faut pour y aller en métro et tram. Choisissez un départ&nbsp;: la carte se
-          colore selon le temps de trajet vers chaque point de la Métropole.
+          colore selon le temps de trajet vers chaque point de l&#x27;agglomération.
         </p>
         <form id="searchForm" class="search" role="search" autocomplete="off">
           <label class="visually-hidden" for="searchInput">Adresse de départ</label>
@@ -317,7 +317,7 @@
           <caption>Lignes de métro et tram du réseau Tisséo, en journée de semaine</caption>
           <thead><tr><th scope="col">Ligne</th><th scope="col">Stations</th><th scope="col">Un passage toutes les</th></tr></thead>
           <tbody>
-            <tr><td><span class="line-badge" style="background:#db001b;color:#fff">A</span> Métro</td><td>18</td><td>~2,6 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#db001b;color:#fff">A</span> Métro</td><td>18</td><td>~2,5 min</td></tr>
             <tr><td><span class="line-badge" style="background:#ffdd00;color:#111">B</span> Métro</td><td>20</td><td>~2 min</td></tr>
             <tr><td><span class="line-badge" style="background:#004687;color:#fff">T1</span> Tram</td><td>25</td><td>~5,1 min</td></tr>
             <tr><td><span class="line-badge" style="background:#dc006b;color:#fff">TELEO</span> Téléphérique</td><td>3</td><td>~2 min</td></tr>
@@ -337,8 +337,8 @@
       <section class="section" aria-labelledby="faq-title">
         <h2 id="faq-title">Questions fréquentes</h2>
         <details class="faq"><summary>Combien de temps faut-il pour traverser Toulouse en métro et tram ?</summary><p>Depuis le centre (Place du Capitole), 35 % des stations de métro et de tram sont à moins de 15 minutes et 79 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, MEETT, est à environ 50 minutes.</p></details>
-        <details class="faq"><summary>Quelle est la fréquence des lignes de métro et tram à Toulouse ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro A : 2,6 min, métro B : 2 min, tram T1 : 5,1 min, téléphérique TELEO : 2 min. La ligne la plus fréquente est la B, avec un passage toutes les 2 minutes environ.</p></details>
-        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau Tisséo (format GTFS, ODbL), téléchargés le 4 octobre 2026 et valables jusqu&#x27;au 5 novembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h.</p></details>
+        <details class="faq"><summary>Quelle est la fréquence des lignes de métro et tram à Toulouse ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro A : 2,5 min, métro B : 2 min, tram T1 : 5,1 min, téléphérique TELEO : 2 min. La ligne la plus fréquente est la B, avec un passage toutes les 2 minutes environ.</p></details>
+        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau Tisséo (format GTFS, ODbL), téléchargés le 7 octobre 2026 et valables jusqu&#x27;au 8 novembre 2026. Les temps correspondent au jeudi 8 octobre 2026, entre 7 h et 20 h.</p></details>
         <details class="faq"><summary>Les bus sont-ils pris en compte à Toulouse ?</summary><p>Oui, en option : cochez « Bus » sous la carte. Par défaut, seuls les métro et tram sont affichés. L&#x27;attente aux arrêts de bus peu fréquentés est plafonnée à 15 minutes.</p></details>
         <details class="faq"><summary>Comment les temps de trajet sont-ils calculés ?</summary><p>Pour chaque trajet : marche jusqu&#x27;à l&#x27;arrêt à 4,5 km/h, attente égale à la moitié de l&#x27;intervalle entre deux passages, durée prévue entre les arrêts, correspondances avec 1,5 minute de marche, et 1 minute pour rejoindre le quai du métro. Pas de temps réel ni de perturbations : c&#x27;est la ville « sur le papier ».</p></details>
         <details class="faq"><summary>Qui a réalisé cette carte de Toulouse ?</summary><p>L'idée vient du <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio, adapté ensuite à Paris par Jules Grandin (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>). Ces cartes sont réalisées par <a href="https://www.camilleroux.com/" rel="author">Camille Roux</a>, développeur et co-fondateur de Human Coders à Montpellier&nbsp;: découvrez <a href="https://www.camilleroux.com/realisations/">ses autres réalisations</a> et <a href="https://www.camilleroux.com/veille/">sa veille tech hebdomadaire</a>. Le code est ouvert sur <a href="https://github.com/camilleroux/montpellier-temps-transport">GitHub</a>.</p></details>
@@ -570,7 +570,7 @@
           Idée originale&nbsp;: le <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio,
           adapté ensuite à Paris par Jules Grandin
           (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>).
-          Horaires&nbsp;: <a href="https://transport.data.gouv.fr/datasets/reseau-urbain-tisseo">GTFS Tisséo</a> (Toulouse Métropole). Fond de carte © <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>,
+          Horaires&nbsp;: <a href="https://transport.data.gouv.fr/datasets/reseau-urbain-tisseo">GTFS Tisséo</a> (Toulouse Métropole, Sicoval, Muretain Agglo, Grand Ouest Toulousain et Coteaux Bellevue). Fond de carte © <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>,
           <a href="https://geo.api.gouv.fr/">contours communaux</a>, recherche d'adresse via la
           <a href="https://adresse.data.gouv.fr/">Base Adresse Nationale</a>.
           Données calculées publiées sous licence <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>, code sous licence MIT.

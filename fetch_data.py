@@ -166,9 +166,12 @@ def main() -> None:
         (out / "communes_osm.json").write_bytes(overpass(query))
         record(out, "communes_osm.json", f"Overpass API: {query}")
     else:
-        communes_url = f"https://geo.api.gouv.fr/epcis/{city['epci']}/communes?fields=nom,code&format=geojson&geometry=contour"
-        (out / "communes.geojson").write_bytes(download(communes_url))
-        record(out, "communes.geojson", communes_url)
+        # Some networks serve several intercommunalities (Tisséo: Toulouse Métropole and four neighbours).
+        epcis = city["epci"] if isinstance(city["epci"], list) else [city["epci"]]
+        urls = [f"https://geo.api.gouv.fr/epcis/{epci}/communes?fields=nom,code&format=geojson&geometry=contour" for epci in epcis]
+        features = [feature for url in urls for feature in json.loads(download(url))["features"]]
+        (out / "communes.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": features}), encoding="utf-8")
+        record(out, "communes.geojson", " + ".join(urls))
     if city.get("arrondissements"):
         print("Arrondissements municipaux…")
         url = (f"https://geo.api.gouv.fr/communes?type=arrondissement-municipal&codeParent={city['arrondissements']}"

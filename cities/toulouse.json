@@ -4,8 +4,14 @@
   "name": "Toulouse",
   "kind": "metro+tram",
   "network": "Tisséo",
-  "metropole": "Toulouse Métropole",
-  "epci": "243100518",
+  "metropole": "Toulouse Métropole, Sicoval, Muretain Agglo, Grand Ouest Toulousain et Coteaux Bellevue",
+  "epci": [
+    "243100518",
+    "243100633",
+    "200068641",
+    "243100781",
+    "243100815"
+  ],
   "gtfsUrl": "https://www.data.gouv.fr/api/1/datasets/r/64318177-f5b5-4144-a6be-2d0f22d26c77",
   "gtfsDataset": "https://transport.data.gouv.fr/datasets/reseau-urbain-tisseo",
   "gtfsLicence": "odbl",
@@ -18,10 +24,10 @@
   "published": "2026-10-05",
   "railLabel": "Métro, tram et Téléo",
   "osmBbox": [
-    43.47,
-    1.18,
-    43.77,
-    1.6
+    43.36,
+    1.08,
+    43.8,
+    1.72
   ],
   "parksBbox": [
     43.55,
@@ -33,5 +39,6 @@
   "ogTrip": {
     "lat": 43.5615,
     "lon": 1.4637
-  }
+  },
+  "area": "de l'agglomération"
 }
