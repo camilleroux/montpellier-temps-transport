@@ -328,6 +328,9 @@ def extract_rivers(data_dir: Path, city: dict) -> Tuple[List[List[Point]], List[
         points = way_points(element.get("geometry", []))
         if len(points) >= 2:
             lines.append(simplify_polyline(points, RIVER_POINT_DISTANCE))
+    # Lakes have no river line: configs draw one down the middle (the Rhône through the harbour of Geneva).
+    for line in city.get("riverLines", []):
+        lines.append([lonlat_to_xy(lon, lat) for lat, lon in line])
     rivers = Rivers(lines)
     bridges: Dict[Tuple[int, int], Tuple[Point, Point, float]] = {}
     for element in load_json(data_dir / "osm_bridges.json")["elements"]:
@@ -719,8 +722,20 @@ def extract_network(data_dir: Path, city: dict):
     # Some feeds mislabel their lines (Reims declares its tram as a metro); configs fix them by short name, or by
     # route_id when the name is ambiguous (the RER A of Île-de-France and the A buses of its suburbs).
     mode_overrides = city.get("routeModes", {})
+    # The Swiss feed files trains under the extended types 102–117 (« metro » by default): configs map them by type.
+    type_modes = city.get("routeTypeModes", {})
+
+    def mode_of(route_id: str, row: dict) -> str:
+        route_type = row.get("route_type", "3")
+        return (mode_overrides.get(route_id) or mode_overrides.get(row.get("route_short_name", ""))
+                or type_modes.get(route_type) or route_mode(route_type))
+
     with zipfile.ZipFile(gtfs_path(data_dir, city)) as archive:
         routes = {row["route_id"]: row for row in read_gtfs_table(archive, "routes.txt")}
+        # Names cleaned up by the config: the Swiss feed calls the Léman Express L1 « RL1 » on the Swiss side.
+        for pattern, replacement in city.get("routeNameRewrites", []):
+            for row in routes.values():
+                row["route_short_name"] = re.sub(pattern, replacement, row.get("route_short_name", ""))
         excluded = {route_id for route_id, row in routes.items() if route_excluded(row, city)}
         stops = {row["stop_id"]: row for row in read_gtfs_table(archive, "stops.txt")}
         if city.get("stopNameLanguage"):
@@ -747,8 +762,19 @@ def extract_network(data_dir: Path, city: dict):
         ]
         # Services of one line published as separate routes (the REM: Deux-Montagnes, Anse-à-l'Orme and Bois-Franc
         # trains, all to Brossard): one route, so that waits on the shared trunk count every train.
+        merged = dict(city.get("mergeRoutes", {}))
+        if city.get("mergeRoutesByName"):
+            # One line run by two operators (the Léman Express: SBB in Switzerland, SNCF in France) is published as
+            # several routes, renewed each year: rail routes with the same name and mode become one.
+            first: Dict[Tuple[str, str], str] = {}
+            for route_id in sorted(routes):
+                row = routes[route_id]
+                mode = mode_of(route_id, row)
+                if mode in RAIL_MODES and route_id not in excluded:
+                    key = (row.get("route_short_name", ""), mode)
+                    merged.setdefault(route_id, first.setdefault(key, route_id))
         for row in all_trips:
-            row["route_id"] = city.get("mergeRoutes", {}).get(row["route_id"], row["route_id"])
+            row["route_id"] = merged.get(row["route_id"], row["route_id"])
         reference_date = pick_reference_date(services, Counter(row["service_id"] for row in all_trips))
         active_services = services[reference_date]
         trips = {row["trip_id"]: row for row in all_trips if row["service_id"] in active_services}
@@ -824,7 +850,7 @@ def extract_network(data_dir: Path, city: dict):
     route_info = {}
     for route_id in sorted(served):  # sorted: identical output from one build to the next
         row = routes[route_id]
-        mode = mode_overrides.get(route_id) or mode_overrides.get(row.get("route_short_name", ""), route_mode(row.get("route_type", "3")))
+        mode = mode_of(route_id, row)
         route_info[route_id] = {
             "mode": mode,
             "rail": mode in RAIL_MODES,
@@ -974,6 +1000,19 @@ def rail_routes_from_osm(data_dir: Path, city: dict, route_info: Dict[str, dict]
                         "points": [round_point(p) for p in simplify_polyline(points, MIN_LINE_DISTANCE)],
                     }
                 )
+    return shapes
+
+
+def rail_routes_from_stops(edges, complexes: Sequence[dict], route_info: Dict[str, dict], drawn: set) -> List[dict]:
+    """Rail lines without any geometry (Swiss trains: no shapes, OSM relations across the whole country) are drawn
+    from stop to stop, one segment per pair of consecutive stations."""
+    shapes, seen = [], set()
+    for a, b, route_id in sorted(edges):
+        if not route_info[route_id]["rail"] or route_id in drawn or (min(a, b), max(a, b), route_id) in seen:
+            continue
+        seen.add((min(a, b), max(a, b), route_id))
+        points = [round_point(complexes[a]["point"]), round_point(complexes[b]["point"])]
+        shapes.append({"id": route_id, "color": route_info[route_id]["color"], "points": points})
     return shapes
 
 
@@ -1173,6 +1212,8 @@ def main() -> None:
         routes = rail_routes_from_osm(data_dir, city, route_info)
     else:
         routes = rail_routes_from_gtfs(gtfs_path(data_dir, city), shape_routes, route_info)
+    if city.get("railGeometryFallback") == "stops":
+        routes += rail_routes_from_stops(edges, complexes, route_info, {route["id"] for route in routes})
 
     stations = [
         {

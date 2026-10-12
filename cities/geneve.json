@@ -1,0 +1,71 @@
+{
+  "slug": "geneve",
+  "order": 30,
+  "name": "Genève",
+  "country": "CH",
+  "kind": "tram",
+  "railNoun": "tram et Léman Express",
+  "railLabel": "Tram et train",
+  "railStations": "stations de tram et gares",
+  "title": "Genève à portée de tram",
+  "network": "TPG et Léman Express",
+  "gtfsNetwork": "opentransportdata.swiss",
+  "metropole": "Canton de Genève",
+  "area": "du canton",
+  "communesOsm": [
+    1685444, 1685445, 1685447, 1685448, 1685449, 1685450, 1685451, 1685459, 1685460, 1685462,
+    1685463, 1685465, 1685466, 1685468, 1685469, 1685470, 1685472, 1685475, 1685478, 1685479,
+    1685487, 1685488, 1685490, 1685492, 1685493, 1685501, 1685502, 1685504, 1685515, 1685516,
+    1685520, 1685521, 1685523, 1685524, 1685525, 1685526, 1685528, 1685531, 1685533, 1685534,
+    1685535, 1685538, 1685540, 1685541, 1685542
+  ],
+  "gtfsUrl": "https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020/permalink",
+  "gtfsDataset": "https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020",
+  "gtfsLicence": "otd",
+  "gtfsClip": [46.12, 5.94, 46.38, 6.32],
+  "stopNameRewrites": [
+    ["^Genève, gare Cornavin$", "Gare Cornavin"],
+    ["^Genève, ", ""]
+  ],
+  "defaultFrom": {
+    "lat": 46.2044,
+    "lon": 6.1432,
+    "label": "Place Bel-Air"
+  },
+  "searchExample": "Gare Cornavin",
+  "published": "2026-10-12",
+  "rivers": ["Le Rhône", "L'Arve"],
+  "routeTypeModes": {
+    "102": "train",
+    "103": "train",
+    "106": "train",
+    "109": "train",
+    "117": "train"
+  },
+  "routeNameRewrites": [
+    ["^RL(\\d)$", "L\\1"]
+  ],
+  "mergeRoutesByName": true,
+  "excludeRouteNames": ["EXT", "C33", "C43", "RE"],
+  "railGeometry": "osm",
+  "osmTrainRoutes": true,
+  "osmRailBbox": [46.12, 5.94, 46.38, 6.32],
+  "osmRefAliases": {"IR 57": "IR57"},
+  "railGeometryFallback": "stops",
+  "riverLines": [
+    [[46.2063, 6.1486], [46.212, 6.156], [46.225, 6.164], [46.245, 6.178], [46.27, 6.19], [46.3, 6.202], [46.33, 6.215], [46.37, 6.235]]
+  ],
+  "routeColors": {
+    "12": "#F5A300",
+    "14": "#5A1E82",
+    "15": "#84471C",
+    "17": "#00ACE7",
+    "18": "#B82F89",
+    "L1": "#BF3527",
+    "L2": "#0085C4",
+    "L3": "#6C9D40",
+    "L4": "#DC911B",
+    "L5": "#C72A80",
+    "L6": "#00B3B9"
+  }
+}

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tram.camilleroux.com/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://tram.camilleroux.com/classements/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://tram.camilleroux.com/classements/dernier-tram-samedi-soir/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://tram.camilleroux.com/classements/metro-tram-le-plus-frequent/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://tram.camilleroux.com/classements/station-la-plus-desservie/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://tram.camilleroux.com/classements/ligne-la-plus-longue/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://tram.camilleroux.com/classements/reseau-le-plus-fourni/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/classements/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/classements/dernier-tram-samedi-soir/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/classements/metro-tram-le-plus-frequent/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/classements/station-la-plus-desservie/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/classements/ligne-la-plus-longue/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/classements/reseau-le-plus-fourni/</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://tram.camilleroux.com/montpellier/</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://tram.camilleroux.com/bordeaux/</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://tram.camilleroux.com/lyon/</loc><lastmod>2026-10-06</lastmod></url>
@@ -35,4 +35,5 @@
   <url><loc>https://tram.camilleroux.com/liege/</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://tram.camilleroux.com/charleroi/</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://tram.camilleroux.com/nimes/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://tram.camilleroux.com/geneve/</loc><lastmod>2026-10-12</lastmod></url>
 </urlset>

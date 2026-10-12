@@ -1,0 +1,227 @@
+{
+  "city": "Genève",
+  "builtAt": "2026-10-12T13:22:59+00:00",
+  "referenceDate": "2026-10-13",
+  "serviceWindow": "7h–20h",
+  "gtfs": {
+    "network": "TPG et Léman Express",
+    "dataset": "https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020",
+    "source": "https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020/permalink",
+    "how": "download",
+    "fetchedAt": "2026-10-12T12:47:12+00:00",
+    "bytes": 27392432,
+    "sha256": "0a2b43c2870ed2dc93a7bd5c6566f1b824417e8e9ee307b6a28f7be83d33d69f",
+    "feedInfo": {
+      "feed_publisher_name": "SBB",
+      "feed_publisher_url": "https://sbb.ch",
+      "feed_lang": "DE",
+      "feed_start_date": "20251214",
+      "feed_end_date": "20261212",
+      "feed_version": "20261010"
+    },
+    "servicePeriod": [
+      "2025-12-14",
+      "2026-12-12"
+    ]
+  },
+  "communes": {
+    "metropole": "Canton de Genève",
+    "source": "Overpass API: [out:json][timeout:110];(relation(1685444);relation(1685445);relation(1685447);relation(1685448);relation(1685449);relation(1685450);relation(1685451);relation(1685459);relation(1685460);relation(1685462);relation(1685463);relation(1685465);relation(1685466);relation(1685468);relation(1685469);relation(1685470);relation(1685472);relation(1685475);relation(1685478);relation(1685479);relation(1685487);relation(1685488);relation(1685490);relation(1685492);relation(1685493);relation(1685501);relation(1685502);relation(1685504);relation(1685515);relation(1685516);relation(1685520);relation(1685521);relation(1685523);relation(1685524);relation(1685525);relation(1685526);relation(1685528);relation(1685531);relation(1685533);relation(1685534);relation(1685535);relation(1685538);relation(1685540);relation(1685541);relation(1685542););out geom;",
+    "how": "download",
+    "fetchedAt": "2026-10-12T12:47:17+00:00",
+    "bytes": 1074705,
+    "sha256": "df4558f5abd6e9c1698a129704e7df61f69eb7dbe34a4c2e264a48f6fdafc708"
+  },
+  "openStreetMap": {
+    "licence": "ODbL, © contributeurs OpenStreetMap",
+    "osm_rail": {
+      "source": "Overpass API: [out:json][timeout:110];(relation[\"route\"~\"^(tram|subway|light_rail|funicular)$\"](46.12,5.94,46.38,6.32);relation[\"route\"=\"train\"](46.12,5.94,46.38,6.32););out geom(46.12,5.94,46.38,6.32);",
+      "how": "download",
+      "fetchedAt": "2026-10-12T13:22:22+00:00",
+      "bytes": 5733779,
+      "sha256": "7e0f12eb2626c2c19072b80f2a58f9061c2c8d8a70d857d33981a9ad27313132"
+    },
+    "osm_water_parks": {
+      "source": "Overpass API: [out:json][timeout:180];(relation[\"natural\"=\"water\"](45.98,5.82,46.42,6.46);way[\"natural\"=\"water\"](45.98,5.82,46.42,6.46);relation[\"leisure\"=\"park\"](46.14,6.06,46.26,6.22);way[\"leisure\"=\"park\"](46.14,6.06,46.26,6.22););out geom;",
+      "how": "download",
+      "fetchedAt": "2026-10-12T12:54:09+00:00",
+      "bytes": 8701908,
+      "sha256": "58a394870c1dcb9ba3726cb0ba7ad7c99755d413fc0abe2abb40648d1012e196"
+    },
+    "osm_rivers": {
+      "source": "Overpass API: [out:json][timeout:110];way[\"waterway\"=\"river\"][\"name\"~\"^(Le\\ Rhône|L'Arve)( - .*)?$\"][\"tunnel\"!~\".\"](45.98,5.82,46.42,6.46);out geom;",
+      "how": "download",
+      "fetchedAt": "2026-10-12T12:58:29+00:00",
+      "bytes": 127059,
+      "sha256": "6a3ff5275555088381d993890bf8e04bcddb8ad1e2c60ff84e2062b7bce73736"
+    },
+    "osm_bridges": {
+      "source": "Overpass API: [out:json][timeout:110];way[\"bridge\"][\"highway\"][\"highway\"!~\"^(motorway|motorway_link|trunk|trunk_link|construction|proposed)$\"][\"foot\"!=\"no\"](45.98,5.82,46.42,6.46);out geom;",
+      "how": "download",
+      "fetchedAt": "2026-10-12T12:59:43+00:00",
+      "bytes": 1237847,
+      "sha256": "bea19568895df0c953d29e66df6a2776c6bc8ca2ed349927b4146c7bba6f7400"
+    }
+  },
+  "railGeometry": "OpenStreetMap",
+  "excludedRoutes": [],
+  "network": {
+    "lines": {
+      "train": 14,
+      "tram": 5,
+      "bus": 96,
+      "ferry": 6
+    },
+    "stops": 1078,
+    "railStations": 111
+  },
+  "stats": {
+    "lines": [
+      {
+        "name": "12",
+        "mode": "tram",
+        "color": "#F5A300",
+        "stations": 25,
+        "headway": 5.1
+      },
+      {
+        "name": "14",
+        "mode": "tram",
+        "color": "#5A1E82",
+        "stations": 30,
+        "headway": 5.0
+      },
+      {
+        "name": "15",
+        "mode": "tram",
+        "color": "#84471C",
+        "stations": 34,
+        "headway": 5.1
+      },
+      {
+        "name": "17",
+        "mode": "tram",
+        "color": "#00ACE7",
+        "stations": 53,
+        "headway": 10.4
+      },
+      {
+        "name": "18",
+        "mode": "tram",
+        "color": "#B82F89",
+        "stations": 33,
+        "headway": 10.0
+      },
+      {
+        "name": "IR",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 2,
+        "headway": 10.0
+      },
+      {
+        "name": "L1",
+        "mode": "train",
+        "color": "#BF3527",
+        "stations": 17,
+        "headway": 30.0
+      },
+      {
+        "name": "L2",
+        "mode": "train",
+        "color": "#0085C4",
+        "stations": 18,
+        "headway": 30.0
+      },
+      {
+        "name": "L3",
+        "mode": "train",
+        "color": "#6C9D40",
+        "stations": 18,
+        "headway": 30.0
+      },
+      {
+        "name": "L4",
+        "mode": "train",
+        "color": "#DC911B",
+        "stations": 17,
+        "headway": 30.0
+      },
+      {
+        "name": "L5",
+        "mode": "train",
+        "color": "#C72A80",
+        "stations": 7,
+        "headway": 30.0
+      },
+      {
+        "name": "L6",
+        "mode": "train",
+        "color": "#00B3B9",
+        "stations": 8,
+        "headway": 30.0
+      },
+      {
+        "name": "L7",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 7,
+        "headway": 30.0
+      },
+      {
+        "name": "IC1",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 2,
+        "headway": 30.0
+      },
+      {
+        "name": "IR15",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 2,
+        "headway": 30.0
+      },
+      {
+        "name": "IR57",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 2,
+        "headway": 30.0
+      },
+      {
+        "name": "IR90",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 2,
+        "headway": 30.0
+      },
+      {
+        "name": "IR95",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 2,
+        "headway": 30.0
+      },
+      {
+        "name": "RE33",
+        "mode": "train",
+        "color": "#888888",
+        "stations": 10,
+        "headway": 30.0
+      }
+    ],
+    "railStations": 111,
+    "busLines": 102,
+    "center": "Place Bel-Air",
+    "within15": 33,
+    "within30": 77,
+    "farthestStation": "Pougny-Chancy",
+    "farthestMinutes": 53,
+    "ogTrip": {
+      "name": "Thônex, Moillesulaz",
+      "lat": 46.19239,
+      "lon": 6.20655
+    }
+  }
+}

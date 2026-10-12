@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Genève à portée de tram · Temps de trajet en tram et Léman Express TPG et Léman Express</title>
+    <meta name="description" content="Carte des temps de trajet en tram et Léman Express à Genève : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau TPG et Léman Express)." />
+    <script>
+      // Anciens liens github.io : on renvoie vers le domaine du site en gardant départ et arrivée.
+      if (location.hostname.endsWith("github.io")) location.replace("https://tram.camilleroux.com/geneve/" + location.search);
+    </script>
+    <link rel="canonical" href="https://tram.camilleroux.com/geneve/" />
+    <meta name="theme-color" content="#3aa70b" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta name="author" content="Camille Roux" />
+    <link rel="author" href="https://www.camilleroux.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="À portée de tram" />
+    <meta property="og:title" content="Genève à portée de tram" />
+    <meta property="og:description" content="Carte des temps de trajet en tram et Léman Express à Genève : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau TPG et Léman Express)." />
+    <meta property="og:url" content="https://tram.camilleroux.com/geneve/" />
+    <meta property="og:image" content="https://tram.camilleroux.com/og/geneve.jpg?v=4b2188ae" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Carte de Genève colorée selon le temps de trajet en tram et Léman Express depuis place Bel-Air, avec les isochrones 15 et 30 minutes." />
+    <meta property="article:author" content="https://www.camilleroux.com/" />
+    <meta property="article:published_time" content="2026-10-12T08:00:00+02:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Genève à portée de tram" />
+    <meta name="twitter:description" content="Carte des temps de trajet en tram et Léman Express à Genève : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau TPG et Léman Express)." />
+    <meta name="twitter:image" content="https://tram.camilleroux.com/og/geneve.jpg?v=4b2188ae" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Genève à portée de tram",
+          "url": "https://tram.camilleroux.com/geneve/",
+          "description": "Carte des temps de trajet en tram et Léman Express à Genève : choisissez un départ, toute la ville se colore selon le temps qu'il faut pour y aller (réseau TPG et Léman Express).",
+          "inLanguage": "fr",
+          "applicationCategory": "TravelApplication",
+          "operatingSystem": "Web",
+          "isAccessibleForFree": true,
+          "image": "https://tram.camilleroux.com/og/geneve.jpg",
+          "author": {
+            "@id": "https://www.camilleroux.com/#me"
+          },
+          "spatialCoverage": {
+            "@type": "Place",
+            "name": "Canton de Genève"
+          },
+          "isBasedOn": [
+            "https://castrio.me/nyc/",
+            "https://julesgrandin.github.io/paris-temps-transport/"
+          ],
+          "datePublished": "2026-10-12",
+          "dateModified": "2026-10-12"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "À portée de tram",
+              "item": "https://tram.camilleroux.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Genève",
+              "item": "https://tram.camilleroux.com/geneve/"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Combien de temps faut-il pour traverser Genève en tram et Léman Express ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Depuis le centre (Place Bel-Air), 33 % des stations de tram et gares sont à moins de 15 minutes et 77 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Pougny-Chancy, est à environ 53 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quelle est la fréquence des lignes de tram et Léman Express à Genève ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de tram 12 : 5,1 min, tram 14 : 5 min, tram 15 : 5,1 min, tram 17 : 10,4 min, tram 18 : 10 min, train IR : 10 min, train L1 : 30 min, train L2 : 30 min, train L3 : 30 min, train L4 : 30 min, train L5 : 30 min, train L6 : 30 min, train L7 : 30 min, train IC1 : 30 min, train IR15 : 30 min, train IR57 : 30 min, train IR90 : 30 min, train IR95 : 30 min, train RE33 : 30 min. La ligne la plus fréquente est la 14, avec un passage toutes les 5 minutes environ."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "D'où viennent les horaires utilisés ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Des horaires théoriques publiés par le réseau TPG et Léman Express (format GTFS, conditions d'utilisation opentransportdata.swiss), téléchargés le 12 octobre 2026 et valables jusqu'au 12 décembre 2026. Les temps correspondent au mardi 13 octobre 2026, entre 7 h et 20 h."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Les bus sont-ils pris en compte à Genève ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, en option : cochez « Bus » sous la carte. Par défaut, seuls les tram et Léman Express sont affichés. L'attente aux arrêts de bus peu fréquentés est plafonnée à 15 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Comment les temps de trajet sont-ils calculés ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pour chaque trajet : marche jusqu'à l'arrêt à 4,5 km/h, attente égale à la moitié de l'intervalle entre deux passages, durée prévue entre les arrêts, correspondances avec 1,5 minute de marche. Pas de temps réel ni de perturbations : c'est la ville « sur le papier »."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Qui a réalisé cette carte de Genève ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "L'idée vient du NYC Transit Time Cartogram d'Anthony Castrio, adapté ensuite à Paris par Jules Grandin (« C'est encore loin ? »). Ces cartes sont réalisées par Camille Roux, développeur et co-fondateur de Human Coders à Montpellier, qui présente ses autres réalisations et sa veille tech hebdomadaire sur camilleroux.com. Le code est ouvert sur GitHub."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://www.camilleroux.com/#me",
+          "name": "Camille Roux",
+          "url": "https://www.camilleroux.com/",
+          "image": "https://www.camilleroux.com/content/images/size/w256h256/format/jpeg/2025/05/camillecouleur---lowres-2.jpg",
+          "jobTitle": "Développeur, co-fondateur de Human Coders",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Human Coders",
+            "url": "https://www.humancoders.com/"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Montpellier",
+            "addressCountry": "FR"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/camilleroux",
+            "https://x.com/CamilleRoux",
+            "https://bsky.app/profile/camilleroux.com",
+            "https://mastodon.social/@camilleroux",
+            "https://github.com/camilleroux"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" />
+    <link rel="stylesheet" href="../styles.css?v=44a58569" />
+  </head>
+  <body>
+    <script id="city-config" type="application/json">{"slug": "geneve", "name": "Genève", "dataVersion": "7ffce079", "defaultFrom": {"lat": 46.2044, "lon": 6.1432, "label": "Place Bel-Air"}, "railNoun": "tram et Léman Express", "railStations": "stations de tram et gares", "busNoun": "bus", "geocoder": "photon", "searchBbox": [45.98, 5.82, 46.42, 6.46]}</script>
+    <header class="topbar">
+      <nav class="topbar-inner" aria-label="Navigation principale">
+        <a class="brand" href="../"><img src="../favicon.svg" width="22" height="22" alt="" /> À portée de tram</a>
+        <div class="topbar-links">
+          <a class="topbar-link" href="../classements/">🏆 Classements</a>
+          <a class="topbar-link" href="https://www.camilleroux.com/" rel="author">camilleroux.com</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../">À portée de tram</a> <span aria-hidden="true">›</span> <span aria-current="page">Genève</span>
+      </nav>
+
+      <section class="hero">
+        <h1><button id="cityTrigger" type="button" class="city-trigger" aria-haspopup="dialog" aria-expanded="false" title="Changer de ville">Genève<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></button> à portée de&nbsp;tram</h1>
+        <div id="cityPanel" class="city-panel" role="dialog" aria-label="Choisir une ville" hidden>
+          <div class="city-panel-head">
+            <input id="citySearch" type="search" placeholder="Rechercher une ville…" aria-label="Rechercher une ville" autocomplete="off" />
+            <button id="cityClose" type="button" class="icon-button" aria-label="Fermer">×</button>
+          </div>
+          <nav class="city-panel-list" aria-label="Villes">
+            <a class="city-item" href="../angers/" data-name="angers"><img src="../og/thumb-angers.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Angers</strong><small>Tram · Irigo</small></span></a>
+            <a class="city-item" href="../besancon/" data-name="besançon"><img src="../og/thumb-besancon.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Besançon</strong><small>Tram · Ginko</small></span></a>
+            <a class="city-item" href="../bordeaux/" data-name="bordeaux"><img src="../og/thumb-bordeaux.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Bordeaux</strong><small>Tram · TBM</small></span></a>
+            <a class="city-item" href="../brest/" data-name="brest"><img src="../og/thumb-brest.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Brest</strong><small>Tram · Bibus</small></span></a>
+            <a class="city-item" href="../bruxelles/" data-name="bruxelles"><img src="../og/thumb-bruxelles.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Bruxelles</strong><small>Métro et tram · STIB</small></span></a>
+            <a class="city-item" href="../charleroi/" data-name="charleroi"><img src="../og/thumb-charleroi.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Charleroi</strong><small>Métro · TEC</small></span></a>
+            <a class="city-item" href="../clermont-ferrand/" data-name="clermont-ferrand"><img src="../og/thumb-clermont-ferrand.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Clermont-Ferrand</strong><small>Tram · T2C</small></span></a>
+            <a class="city-item" href="../dijon/" data-name="dijon"><img src="../og/thumb-dijon.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Dijon</strong><small>Tram · Divia</small></span></a>
+            <a class="city-item current" href="../geneve/" aria-current="page" data-name="genève"><img src="../og/thumb-geneve.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Genève</strong><small>Tram · TPG et Léman Express</small></span></a>
+            <a class="city-item" href="../grenoble/" data-name="grenoble"><img src="../og/thumb-grenoble.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Grenoble</strong><small>Tram · M réso</small></span></a>
+            <a class="city-item" href="../le-mans/" data-name="le mans"><img src="../og/thumb-le-mans.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Le Mans</strong><small>Tram · SETRAM</small></span></a>
+            <a class="city-item" href="../lille/" data-name="lille"><img src="../og/thumb-lille.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Lille</strong><small>Métro et tram · Ilévia</small></span></a>
+            <a class="city-item" href="../liege/" data-name="liège"><img src="../og/thumb-liege.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Liège</strong><small>Tram · TEC</small></span></a>
+            <a class="city-item" href="../lyon/" data-name="lyon"><img src="../og/thumb-lyon.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Lyon</strong><small>Métro et tram · TCL</small></span></a>
+            <a class="city-item" href="../marseille/" data-name="marseille"><img src="../og/thumb-marseille.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Marseille</strong><small>Métro et tram · RTM</small></span></a>
+            <a class="city-item" href="../montpellier/" data-name="montpellier"><img src="../og/thumb-montpellier.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montpellier</strong><small>Tram · TaM</small></span></a>
+            <a class="city-item" href="../montreal/" data-name="montréal"><img src="../og/thumb-montreal.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montréal</strong><small>Métro · STM et REM</small></span></a>
+            <a class="city-item" href="../nantes/" data-name="nantes"><img src="../og/thumb-nantes.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nantes</strong><small>Tram · Naolib</small></span></a>
+            <a class="city-item" href="../nice/" data-name="nice"><img src="../og/thumb-nice.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nice</strong><small>Tram · Lignes d&#x27;Azur</small></span></a>
+            <a class="city-item" href="../nimes/" data-name="nîmes"><img src="../og/thumb-nimes.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nîmes</strong><small>Tram · Tango</small></span></a>
+            <a class="city-item" href="../orleans/" data-name="orléans"><img src="../og/thumb-orleans.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Orléans</strong><small>Tram · TAO</small></span></a>
+            <a class="city-item" href="../paris/" data-name="paris"><img src="../og/thumb-paris.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Paris</strong><small>Métro et tram · Île-de-France Mobilités</small></span></a>
+            <a class="city-item" href="../reims/" data-name="reims"><img src="../og/thumb-reims.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Reims</strong><small>Tram · Citura</small></span></a>
+            <a class="city-item" href="../rennes/" data-name="rennes"><img src="../og/thumb-rennes.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Rennes</strong><small>Métro · STAR</small></span></a>
+            <a class="city-item" href="../rouen/" data-name="rouen"><img src="../og/thumb-rouen.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Rouen</strong><small>Métro · Astuce</small></span></a>
+            <a class="city-item" href="../saint-etienne/" data-name="saint-étienne"><img src="../og/thumb-saint-etienne.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Saint-Étienne</strong><small>Tram · STAS</small></span></a>
+            <a class="city-item" href="../strasbourg/" data-name="strasbourg"><img src="../og/thumb-strasbourg.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Strasbourg</strong><small>Tram · CTS</small></span></a>
+            <a class="city-item" href="../toulouse/" data-name="toulouse"><img src="../og/thumb-toulouse.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Toulouse</strong><small>Métro et tram · Tisséo</small></span></a>
+            <a class="city-item" href="../tours/" data-name="tours"><img src="../og/thumb-tours.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Tours</strong><small>Tram · Fil Bleu</small></span></a>
+          </nav>
+        </div>
+        <p class="lede">
+          La ville redessinée par le temps qu'il faut pour y aller en tram et Léman Express. Choisissez un départ&nbsp;: la carte se
+          colore selon le temps de trajet vers chaque point du canton.
+        </p>
+        <form id="searchForm" class="search" role="search" autocomplete="off">
+          <label class="visually-hidden" for="searchInput">Adresse de départ</label>
+          <input id="searchInput" type="search" placeholder="Partir d'une adresse… (ex. Gare Cornavin)" />
+          <button type="submit" class="button primary">Partir d'ici</button>
+          <ul id="searchResults" class="search-results" hidden></ul>
+        </form>
+        <ol class="steps" aria-label="Mode d'emploi">
+          <li><strong>1. Départ</strong> Cherchez une adresse ou glissez le point vert.</li>
+          <li><strong>2. Arrivée</strong> Cliquez n'importe où : durée et itinéraire détaillé.</li>
+          <li><strong>3. Lecture</strong> Vert = proche, rouge = loin. Lignes noires : 15 et 30 min.</li>
+        </ol>
+      </section>
+
+      <section class="map-card" aria-label="Carte des temps de trajet">
+        <noscript>
+          <p class="noscript">
+            Cette carte interactive a besoin de JavaScript pour calculer les temps de trajet. Activez-le pour l'utiliser.
+          </p>
+        </noscript>
+        <div id="mapStage" class="map-stage">
+          <canvas id="mapCanvas"></canvas>
+
+          <aside id="tripPanel" class="trip-panel" aria-live="polite">
+            <p class="trip-eyebrow">Départ</p>
+            <p id="tripFrom" class="trip-from">Chargement du réseau…</p>
+            <div id="tripResult" class="trip-result" hidden>
+              <div class="trip-row">
+                <p class="trip-eyebrow">Arrivée</p>
+                <button id="removeTo" type="button" class="link-button">Retirer</button>
+              </div>
+              <p id="tripTo" class="trip-to"></p>
+              <p id="tripDuration" class="trip-duration"></p>
+              <ol id="tripSteps" class="trip-steps"></ol>
+              <div id="heatFrom" class="segmented" role="group" aria-label="Point d'où part la carte">
+                <span>Carte depuis</span>
+                <button type="button" data-source="from" aria-pressed="true">le départ</button>
+                <button type="button" data-source="to" aria-pressed="false">l'arrivée</button>
+              </div>
+            </div>
+            <p id="tripHint" class="trip-hint">Cliquez sur la carte pour poser une arrivée.</p>
+          </aside>
+
+          <div class="map-buttons">
+            <button id="zoomIn" type="button" class="icon-button" aria-label="Zoomer">+</button>
+            <button id="zoomOut" type="button" class="icon-button" aria-label="Dézoomer">−</button>
+            <button id="recenter" type="button" class="icon-button" aria-label="Recentrer la carte">⌖</button>
+            <button id="fullscreen" type="button" class="icon-button" aria-label="Plein écran">⤢</button>
+          </div>
+
+          <label class="pill-toggle map-bus"><input id="busToggleMap" type="checkbox" /> Ajouter les bus</label>
+
+          <div class="legend" aria-hidden="true">
+            <div id="legendBar" class="legend-bar"></div>
+            <div class="legend-labels"><span>0</span><span id="legendMid"></span><span id="legendMax"></span></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <span class="control-label">Réseau</span>
+            <label class="pill-toggle"><input type="checkbox" checked disabled /> Tram et train</label>
+            <label class="pill-toggle"><input id="busToggle" type="checkbox" /> Bus</label>
+          </div>
+          <div id="isoToggles" class="control-group">
+            <span class="control-label">Isochrones</span>
+            <label class="pill-toggle"><input type="checkbox" value="15" checked /> 15 min</label>
+            <label class="pill-toggle"><input type="checkbox" value="30" checked /> 30 min</label>
+            <label class="pill-toggle"><input type="checkbox" value="45" /> 45 min</label>
+            <label class="pill-toggle"><input type="checkbox" value="60" /> 60 min</label>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="maxRange">Échelle</label>
+            <input id="maxRange" type="range" min="20" max="90" step="5" value="45" />
+            <output id="maxValue" for="maxRange">45 min</output>
+          </div>
+          <div class="control-group actions">
+            <button id="locate" type="button" class="button">Ma position</button>
+            <button id="swap" type="button" class="button">Inverser</button>
+            <button id="share" type="button" class="button primary">Partager</button>
+          </div>
+        </div>
+        <p id="reach" class="reach"></p>
+      </section>
+
+      <section class="section" aria-labelledby="stats-title">
+        <h2 id="stats-title">Genève en chiffres</h2>
+        <div class="stat-grid">
+          <div class="stat"><strong>77 %</strong><span>des stations de tram et gares à moins de 30 min du centre (Place Bel-Air)</span></div>
+          <div class="stat"><strong>111</strong><span>stations de tram et gares</span></div>
+          <div class="stat"><strong>5 min</strong><span>entre deux passages sur la ligne 14, la plus fréquente</span></div>
+          <div class="stat"><strong>53 min</strong><span>depuis le centre pour rejoindre Pougny-Chancy, la station la plus éloignée</span></div>
+        </div>
+        <table class="lines-table">
+          <caption>Lignes de tram et Léman Express du réseau TPG et Léman Express, en journée de semaine</caption>
+          <thead><tr><th scope="col">Ligne</th><th scope="col">Stations</th><th scope="col">Un passage toutes les</th></tr></thead>
+          <tbody>
+            <tr><td><span class="line-badge" style="background:#F5A300;color:#111">12</span> Tram</td><td>25</td><td>~5,1 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#5A1E82;color:#fff">14</span> Tram</td><td>30</td><td>~5 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#84471C;color:#fff">15</span> Tram</td><td>34</td><td>~5,1 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#00ACE7;color:#fff">17</span> Tram</td><td>53</td><td>~10,4 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#B82F89;color:#fff">18</span> Tram</td><td>33</td><td>~10 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">IR</span> Train</td><td>2</td><td>~10 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#BF3527;color:#fff">L1</span> Train</td><td>17</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#0085C4;color:#fff">L2</span> Train</td><td>18</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#6C9D40;color:#fff">L3</span> Train</td><td>18</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#DC911B;color:#111">L4</span> Train</td><td>17</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#C72A80;color:#fff">L5</span> Train</td><td>7</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#00B3B9;color:#fff">L6</span> Train</td><td>8</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">L7</span> Train</td><td>7</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">IC1</span> Train</td><td>2</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">IR15</span> Train</td><td>2</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">IR57</span> Train</td><td>2</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">IR90</span> Train</td><td>2</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">IR95</span> Train</td><td>2</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#888888;color:#fff">RE33</span> Train</td><td>10</td><td>~30 min</td></tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions fréquentes</h2>
+        <details class="faq"><summary>Combien de temps faut-il pour traverser Genève en tram et Léman Express ?</summary><p>Depuis le centre (Place Bel-Air), 33 % des stations de tram et gares sont à moins de 15 minutes et 77 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Pougny-Chancy, est à environ 53 minutes.</p></details>
+        <details class="faq"><summary>Quelle est la fréquence des lignes de tram et Léman Express à Genève ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de tram 12 : 5,1 min, tram 14 : 5 min, tram 15 : 5,1 min, tram 17 : 10,4 min, tram 18 : 10 min, train IR : 10 min, train L1 : 30 min, train L2 : 30 min, train L3 : 30 min, train L4 : 30 min, train L5 : 30 min, train L6 : 30 min, train L7 : 30 min, train IC1 : 30 min, train IR15 : 30 min, train IR57 : 30 min, train IR90 : 30 min, train IR95 : 30 min, train RE33 : 30 min. La ligne la plus fréquente est la 14, avec un passage toutes les 5 minutes environ.</p></details>
+        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau TPG et Léman Express (format GTFS, conditions d&#x27;utilisation opentransportdata.swiss), téléchargés le 12 octobre 2026 et valables jusqu&#x27;au 12 décembre 2026. Les temps correspondent au mardi 13 octobre 2026, entre 7 h et 20 h.</p></details>
+        <details class="faq"><summary>Les bus sont-ils pris en compte à Genève ?</summary><p>Oui, en option : cochez « Bus » sous la carte. Par défaut, seuls les tram et Léman Express sont affichés. L&#x27;attente aux arrêts de bus peu fréquentés est plafonnée à 15 minutes.</p></details>
+        <details class="faq"><summary>Comment les temps de trajet sont-ils calculés ?</summary><p>Pour chaque trajet : marche jusqu&#x27;à l&#x27;arrêt à 4,5 km/h, attente égale à la moitié de l&#x27;intervalle entre deux passages, durée prévue entre les arrêts, correspondances avec 1,5 minute de marche. Pas de temps réel ni de perturbations : c&#x27;est la ville « sur le papier ».</p></details>
+        <details class="faq"><summary>Qui a réalisé cette carte de Genève ?</summary><p>L'idée vient du <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio, adapté ensuite à Paris par Jules Grandin (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>). Ces cartes sont réalisées par <a href="https://www.camilleroux.com/" rel="author">Camille Roux</a>, développeur et co-fondateur de Human Coders à Montpellier&nbsp;: découvrez <a href="https://www.camilleroux.com/realisations/">ses autres réalisations</a> et <a href="https://www.camilleroux.com/veille/">sa veille tech hebdomadaire</a>. Le code est ouvert sur <a href="https://github.com/camilleroux/montpellier-temps-transport">GitHub</a>.</p></details>
+      </section>
+
+      <section class="section" aria-labelledby="cities-title">
+        <h2 id="cities-title">Les autres villes</h2>
+        <div class="city-grid">
+          <a class="city-card" href="../montpellier/">
+            <img src="../og/thumb-montpellier.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Montpellier à portée de tram</h3>
+              <span>88&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place de la Comédie) · réseau TaM</span>
+            </span>
+          </a>
+          <a class="city-card" href="../bordeaux/">
+            <img src="../og/thumb-bordeaux.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Bordeaux à portée de tram</h3>
+              <span>71&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place des Quinconces) · réseau TBM</span>
+            </span>
+          </a>
+          <a class="city-card" href="../lyon/">
+            <img src="../og/thumb-lyon.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Lyon à portée de métro</h3>
+              <span>75&nbsp;% des stations de métro et de tram à moins de 30&nbsp;min du centre (Place Bellecour) · réseau TCL</span>
+            </span>
+          </a>
+          <a class="city-card" href="../toulouse/">
+            <img src="../og/thumb-toulouse.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Toulouse à portée de métro</h3>
+              <span>79&nbsp;% des stations de métro et de tram à moins de 30&nbsp;min du centre (Place du Capitole) · réseau Tisséo</span>
+            </span>
+          </a>
+          <a class="city-card" href="../marseille/">
+            <img src="../og/thumb-marseille.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Marseille à portée de métro</h3>
+              <span>98&nbsp;% des stations de métro et de tram à moins de 30&nbsp;min du centre (Vieux-Port) · réseau RTM</span>
+            </span>
+          </a>
+          <a class="city-card" href="../lille/">
+            <img src="../og/thumb-lille.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Lille à portée de métro</h3>
+              <span>75&nbsp;% des stations de métro et de tram à moins de 30&nbsp;min du centre (Grand&#x27;Place) · réseau Ilévia</span>
+            </span>
+          </a>
+          <a class="city-card" href="../nantes/">
+            <img src="../og/thumb-nantes.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Nantes à portée de tram</h3>
+              <span>96&nbsp;% des stations de tram et de Busway à moins de 30&nbsp;min du centre (Place du Commerce) · réseau Naolib</span>
+            </span>
+          </a>
+          <a class="city-card" href="../strasbourg/">
+            <img src="../og/thumb-strasbourg.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Strasbourg à portée de tram</h3>
+              <span>95&nbsp;% des stations de tram et de BHNS à moins de 30&nbsp;min du centre (Place Kléber) · réseau CTS</span>
+            </span>
+          </a>
+          <a class="city-card" href="../rennes/">
+            <img src="../og/thumb-rennes.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Rennes à portée de métro</h3>
+              <span>100&nbsp;% des stations de métro à moins de 30&nbsp;min du centre (Place de la République) · réseau STAR</span>
+            </span>
+          </a>
+          <a class="city-card" href="../grenoble/">
+            <img src="../og/thumb-grenoble.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Grenoble à portée de tram</h3>
+              <span>90&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place Victor-Hugo) · réseau M réso</span>
+            </span>
+          </a>
+          <a class="city-card" href="../nice/">
+            <img src="../og/thumb-nice.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Nice à portée de tram</h3>
+              <span>72&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place Masséna) · réseau Lignes d&#x27;Azur</span>
+            </span>
+          </a>
+          <a class="city-card" href="../angers/">
+            <img src="../og/thumb-angers.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Angers à portée de tram</h3>
+              <span>90&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place du Ralliement) · réseau Irigo</span>
+            </span>
+          </a>
+          <a class="city-card" href="../tours/">
+            <img src="../og/thumb-tours.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Tours à portée de tram</h3>
+              <span>97&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place Jean-Jaurès) · réseau Fil Bleu</span>
+            </span>
+          </a>
+          <a class="city-card" href="../dijon/">
+            <img src="../og/thumb-dijon.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Dijon à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place Darcy) · réseau Divia</span>
+            </span>
+          </a>
+          <a class="city-card" href="../reims/">
+            <img src="../og/thumb-reims.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Reims à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place d&#x27;Erlon) · réseau Citura</span>
+            </span>
+          </a>
+          <a class="city-card" href="../le-mans/">
+            <img src="../og/thumb-le-mans.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Le Mans à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place de la République) · réseau SETRAM</span>
+            </span>
+          </a>
+          <a class="city-card" href="../brest/">
+            <img src="../og/thumb-brest.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Brest à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place de la Liberté) · réseau Bibus</span>
+            </span>
+          </a>
+          <a class="city-card" href="../clermont-ferrand/">
+            <img src="../og/thumb-clermont-ferrand.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Clermont-Ferrand à portée de tram</h3>
+              <span>94&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place de Jaude) · réseau T2C</span>
+            </span>
+          </a>
+          <a class="city-card" href="../saint-etienne/">
+            <img src="../og/thumb-saint-etienne.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Saint-Étienne à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place de l&#x27;Hôtel-de-Ville) · réseau STAS</span>
+            </span>
+          </a>
+          <a class="city-card" href="../rouen/">
+            <img src="../og/thumb-rouen.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Rouen à portée de métro</h3>
+              <span>74&nbsp;% des stations de métro à moins de 30&nbsp;min du centre (Hôtel de Ville) · réseau Astuce</span>
+            </span>
+          </a>
+          <a class="city-card" href="../besancon/">
+            <img src="../og/thumb-besancon.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Besançon à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place de la Révolution) · réseau Ginko</span>
+            </span>
+          </a>
+          <a class="city-card" href="../orleans/">
+            <img src="../og/thumb-orleans.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Orléans à portée de tram</h3>
+              <span>96&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place du Martroi) · réseau TAO</span>
+            </span>
+          </a>
+          <a class="city-card" href="../montreal/">
+            <img src="../og/thumb-montreal.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Montréal à portée de métro</h3>
+              <span>88&nbsp;% des stations de métro à moins de 30&nbsp;min du centre (Place Émilie-Gamelin) · réseau STM et REM</span>
+            </span>
+          </a>
+          <a class="city-card" href="../bruxelles/">
+            <img src="../og/thumb-bruxelles.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Bruxelles à portée de métro</h3>
+              <span>53&nbsp;% des stations de métro et de tram à moins de 30&nbsp;min du centre (Grand-Place) · réseau STIB</span>
+            </span>
+          </a>
+          <a class="city-card" href="../paris/">
+            <img src="../og/thumb-paris.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Paris à portée de métro</h3>
+              <span>63&nbsp;% des stations de métro, de RER, de Transilien et de tram à moins de 30&nbsp;min du centre (Châtelet) · réseau Île-de-France Mobilités</span>
+            </span>
+          </a>
+          <a class="city-card" href="../liege/">
+            <img src="../og/thumb-liege.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Liège à portée de tram</h3>
+              <span>100&nbsp;% des stations de tram à moins de 30&nbsp;min du centre (Place Saint-Lambert) · réseau TEC</span>
+            </span>
+          </a>
+          <a class="city-card" href="../charleroi/">
+            <img src="../og/thumb-charleroi.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Charleroi à portée de métro</h3>
+              <span>65&nbsp;% des stations de métro à moins de 30&nbsp;min du centre (Place Charles II) · réseau TEC</span>
+            </span>
+          </a>
+          <a class="city-card" href="../nimes/">
+            <img src="../og/thumb-nimes.jpg" width="600" height="315" alt="" loading="lazy" />
+            <span class="city-card-body">
+              <h3>Nîmes à portée de Tram&#x27;bus</h3>
+              <span>97&nbsp;% des stations de Tram&#x27;bus à moins de 30&nbsp;min du centre (Esplanade Charles-de-Gaulle) · réseau Tango</span>
+            </span>
+          </a>
+        </div>
+        <aside class="follow-card" aria-label="Nouvelles villes">
+          <div class="follow-text">
+            <p class="follow-title">Suivre les nouvelles villes</p>
+            <p>Chaque nouvelle ville est annoncée sur X et LinkedIn. La vôtre n'est pas encore là&nbsp;?
+            <a href="https://github.com/camilleroux/montpellier-temps-transport/issues" rel="noopener">Proposez-la sur GitHub</a>.</p>
+          </div>
+          <div class="follow-actions">
+            <a class="button follow-x" href="https://x.com/CamilleRoux" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg> Suivre sur X</a>
+            <a class="button follow-linkedin" href="https://www.linkedin.com/in/camilleroux" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 4.9v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Suivre sur LinkedIn</a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-author">
+          Un projet de <a href="https://www.camilleroux.com/" rel="author">Camille Roux</a>, développeur et co-fondateur de Human Coders,
+          à Montpellier, d'après l'idée d'Anthony Castrio et de Jules Grandin. Découvrez
+          <a href="https://www.camilleroux.com/realisations/">ses autres réalisations</a> et sa
+          <a href="https://www.camilleroux.com/veille/">veille tech hebdomadaire</a>.
+        </p>
+        <p class="footer-links">Villes&nbsp;: <a href="../angers/">Angers</a> · <a href="../besancon/">Besançon</a> · <a href="../bordeaux/">Bordeaux</a> · <a href="../brest/">Brest</a> · <a href="../bruxelles/">Bruxelles</a> · <a href="../charleroi/">Charleroi</a> · <a href="../clermont-ferrand/">Clermont-Ferrand</a> · <a href="../dijon/">Dijon</a> · <a href="../geneve/">Genève</a> · <a href="../grenoble/">Grenoble</a> · <a href="../le-mans/">Le Mans</a> · <a href="../lille/">Lille</a> · <a href="../liege/">Liège</a> · <a href="../lyon/">Lyon</a> · <a href="../marseille/">Marseille</a> · <a href="../montpellier/">Montpellier</a> · <a href="../montreal/">Montréal</a> · <a href="../nantes/">Nantes</a> · <a href="../nice/">Nice</a> · <a href="../nimes/">Nîmes</a> · <a href="../orleans/">Orléans</a> · <a href="../paris/">Paris</a> · <a href="../reims/">Reims</a> · <a href="../rennes/">Rennes</a> · <a href="../rouen/">Rouen</a> · <a href="../saint-etienne/">Saint-Étienne</a> · <a href="../strasbourg/">Strasbourg</a> · <a href="../toulouse/">Toulouse</a> · <a href="../tours/">Tours</a></p>
+        <p class="footer-links">
+          <a href="https://github.com/camilleroux/montpellier-temps-transport" rel="noopener">Code source sur GitHub</a> ·
+          <a href="https://github.com/camilleroux/montpellier-temps-transport/issues" rel="noopener">Proposer une ville ou signaler une erreur</a> ·
+          <a href="../classements/">Classements</a> ·
+          <a href="../mentions-legales/">Mentions légales et licences</a>
+        </p>
+        <p class="footer-credits">
+          Idée originale&nbsp;: le <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio,
+          adapté ensuite à Paris par Jules Grandin
+          (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>).
+          Horaires&nbsp;: <a href="https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020">GTFS opentransportdata.swiss</a> (Canton de Genève). Fond de carte © <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>,
+          limites administratives OpenStreetMap, recherche d'adresse via
+          <a href="https://photon.komoot.io/">Photon</a> (komoot, données OpenStreetMap).
+          Données calculées publiées sous licence <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>, code sous licence MIT.
+        </p>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script type="module" src="../app.js?v=34af2a7e"></script>
+    <!-- Cloudflare Web Analytics (sans cookie). "spa": false : les mises à jour de l'URL ne comptent pas comme des pages vues. -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1904c17ed0624c0cab4d69ea1bacc5e7", "spa": false}'></script>
+  </body>
+</html>

@@ -12,6 +12,7 @@ Généré par `build_pages.py` à partir des fiches `sources/<ville>.json`.
 | [Charleroi](charleroi.json) | TEC | CC BY 4.0 | 2026-10-06 | 2026-09-17 → 2026-12-31 | 2026-11-10 |
 | [Clermont-Ferrand](clermont-ferrand.json) | T2C | Licence Ouverte 2.0 | 2026-10-04 | 2026-08-31 → 2026-12-31 | 2026-10-06 |
 | [Dijon](dijon.json) | Divia | Licence Ouverte 2.0 | 2026-10-04 | 2026-01-01 → 2026-12-31 | 2026-10-06 |
+| [Genève](geneve.json) | TPG et Léman Express | conditions d'utilisation opentransportdata.swiss | 2026-10-12 | 2025-12-14 → 2026-12-12 | 2026-10-13 |
 | [Grenoble](grenoble.json) | M réso | ODbL | 2026-10-04 | 2026-09-30 → 2026-12-31 | 2026-11-03 |
 | [Le Mans](le-mans.json) | SETRAM | Licence Ouverte 2.0 | 2026-10-04 | 2026-08-31 → 2026-11-28 | 2026-10-06 |
 | [Lille](lille.json) | Ilévia | Licence Ouverte 2.0 | 2026-10-04 | 2026-10-02 → 2027-07-02 | 2026-11-03 |

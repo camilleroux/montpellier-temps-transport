@@ -6,7 +6,9 @@ Usage: python3 fetch_data.py <city> [--gtfs-only | --context-only | --rivers-onl
 
 from __future__ import annotations
 
+import csv
 import hashlib
+import io
 import json
 import re
 import sys
@@ -14,6 +16,8 @@ import time
 from datetime import datetime, timezone
 import urllib.parse
 import urllib.request
+import zipfile
+from collections import Counter
 from pathlib import Path
 
 from cities import load_city
@@ -34,6 +38,73 @@ def download(url: str, data: bytes | None = None) -> bytes:
     request = urllib.request.Request(url, data=data, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=300) as response:
         return response.read()
+
+
+def clip_gtfs(source: Path, target: Path, area) -> None:
+    """National feeds (Switzerland: 4.5 GB unzipped) are cut down to the stops in `gtfsClip` and the trips calling at
+    two of them, with their routes, services and transfers: a few tens of MB that build_data.py reads like any feed."""
+    south, west, north, east = area
+    csv.field_size_limit(sys.maxsize)
+
+    def read(archive: zipfile.ZipFile, name: str):
+        with archive.open(name) as handle:
+            reader = csv.reader(io.TextIOWrapper(handle, encoding="utf-8-sig", newline=""))
+            header = next(reader)
+            yield header
+            yield from reader
+
+    def table(archive: zipfile.ZipFile, name: str, keep):
+        rows = read(archive, name)
+        header = next(rows)
+        return header, [row for row in rows if keep(dict(zip(header, row)))]
+
+    def write(out: zipfile.ZipFile, name: str, header, rows) -> None:
+        buffer = io.StringIO()
+        writer = csv.writer(buffer, lineterminator="\n")
+        writer.writerow(header)
+        writer.writerows(rows)
+        out.writestr(name, buffer.getvalue())
+
+    with zipfile.ZipFile(source) as archive:
+        stops_header, stops = table(archive, "stops.txt", lambda row: True)
+        stop_col = stops_header.index("stop_id")
+        lat, lon = stops_header.index("stop_lat"), stops_header.index("stop_lon")
+        inside = {row[stop_col] for row in stops if south <= float(row[lat] or 0) <= north and west <= float(row[lon] or 0) <= east}
+
+        rows = read(archive, "stop_times.txt")
+        times_header = next(rows)
+        trip_col, time_stop_col = times_header.index("trip_id"), times_header.index("stop_id")
+        times, calls = [], Counter()
+        for row in rows:
+            if row[time_stop_col] in inside:
+                times.append(row)
+                calls[row[trip_col]] += 1
+        kept_trips = {trip_id for trip_id, count in calls.items() if count >= 2}
+        times = [row for row in times if row[trip_col] in kept_trips]
+        used = {row[time_stop_col] for row in times}
+        parent_col = stops_header.index("parent_station") if "parent_station" in stops_header else None
+        used |= {row[parent_col] for row in stops if parent_col is not None and row[stop_col] in used and row[parent_col]}
+
+        trips_header, trips = table(archive, "trips.txt", lambda row: row["trip_id"] in kept_trips)
+        routes_kept = {row[trips_header.index("route_id")] for row in trips}
+        services_kept = {row[trips_header.index("service_id")] for row in trips}
+        routes_header, routes = table(archive, "routes.txt", lambda row: row["route_id"] in routes_kept)
+        agencies = {row[routes_header.index("agency_id")] for row in routes}
+        names = archive.namelist()
+        with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as out:
+            write(out, "stops.txt", stops_header, [row for row in stops if row[stop_col] in used])
+            write(out, "stop_times.txt", times_header, times)
+            write(out, "trips.txt", trips_header, trips)
+            write(out, "routes.txt", routes_header, routes)
+            write(out, "agency.txt", *table(archive, "agency.txt", lambda row: row["agency_id"] in agencies))
+            for name in ("calendar.txt", "calendar_dates.txt"):
+                if name in names:
+                    write(out, name, *table(archive, name, lambda row: row["service_id"] in services_kept))
+            if "transfers.txt" in names:
+                write(out, "transfers.txt", *table(
+                    archive, "transfers.txt", lambda row: row["from_stop_id"] in used and row["to_stop_id"] in used))
+            if "feed_info.txt" in names:
+                out.writestr("feed_info.txt", archive.read("feed_info.txt"))
 
 
 def overpass(query: str) -> bytes:
@@ -97,7 +168,12 @@ def fetch_rail(city: dict, out: Path) -> None:
     if buses:
         refs = "|".join(re.escape(ref) for ref in buses["refs"])
         query += f'relation["route"="bus"]["network"="{buses["network"]}"]["ref"~"^({refs})$"]({area});'
-    query += ");out geom;"
+    if city.get("osmTrainRoutes"):
+        # Trains (Léman Express, IR…) cross the whole country: only their ways inside the area are kept.
+        query += f'relation["route"="train"]({area});'
+        query += f");out geom({area});"
+    else:
+        query += ");out geom;"
     (out / "osm_rail.json").write_bytes(overpass(query))
     record(out, "osm_rail.json", f"Overpass API: {query}")
 
@@ -148,7 +224,14 @@ def main() -> None:
         print(f"  fichier manuel conservé ({city['gtfsManual']})")
         record(out, "gtfs.zip", city["gtfsUrl"], how="manual")
     else:
-        (out / "gtfs.zip").write_bytes(download(city["gtfsUrl"]))
+        if city.get("gtfsClip"):
+            full = out / "gtfs_full.zip"
+            full.write_bytes(download(city["gtfsUrl"]))
+            print("  découpage sur la zone de la ville…")
+            clip_gtfs(full, out / "gtfs.zip", city["gtfsClip"])
+            full.unlink()
+        else:
+            (out / "gtfs.zip").write_bytes(download(city["gtfsUrl"]))
         record(out, "gtfs.zip", city["gtfsUrl"])
     for extra in city.get("gtfsExtra", []):
         # Lines published in a feed of their own (the REM in Montréal), merged by build_data.py.
