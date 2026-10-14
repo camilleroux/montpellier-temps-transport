@@ -806,7 +806,21 @@ def extract_network(data_dir: Path, city: dict):
         trip["shape_id"] for trip in trips.values() if route_info.get(trip["route_id"], {}).get("rail") and trip.get("shape_id")
     }
     shape_routes = {trip["shape_id"]: trip["route_id"] for trip in trips.values() if trip.get("shape_id") in rail_shape_ids}
-    return reference_date, complexes, edges, waits, route_info, shape_routes
+    # Trips cut at the edge (`stopsBbox`): their lines are drawn only between the first and last stop kept, rather
+    # than on to Creil with no station on the way.
+    shape_ends: Dict[str, Tuple[Point, Point]] = {}
+    if city.get("stopsBbox"):
+        longest: Dict[str, int] = {}
+        for trip_id, sequence in stop_times.items():
+            shape_id = trips[trip_id].get("shape_id")
+            if shape_id in shape_routes and len(sequence) > longest.get(shape_id, 0):
+                longest[shape_id] = len(sequence)
+                first, last = stops[sequence[0][1]], stops[sequence[-1][1]]
+                shape_ends[shape_id] = (
+                    lonlat_to_xy(float(first["stop_lon"]), float(first["stop_lat"])),
+                    lonlat_to_xy(float(last["stop_lon"]), float(last["stop_lat"])),
+                )
+    return reference_date, complexes, edges, waits, route_info, shape_routes, shape_ends
 
 
 def build_graph(complexes: Sequence[dict], edges, waits, route_info: Dict[str, dict], access_minutes: Dict[str, float], rivers: Rivers):
@@ -867,7 +881,9 @@ def build_graph(complexes: Sequence[dict], edges, waits, route_info: Dict[str, d
 # --- Rail geometry ----------------------------------------------------------
 
 
-def rail_routes_from_gtfs(gtfs: Path, shape_routes: Dict[str, str], route_info: Dict[str, dict]) -> List[dict]:
+def rail_routes_from_gtfs(
+    gtfs: Path, shape_routes: Dict[str, str], route_info: Dict[str, dict], shape_ends: Dict[str, Tuple[Point, Point]]
+) -> List[dict]:
     points: Dict[str, List[Tuple[int, Point]]] = defaultdict(list)
     with zipfile.ZipFile(gtfs) as archive:
         for row in read_gtfs_table(archive, "shapes.txt"):
@@ -877,7 +893,11 @@ def rail_routes_from_gtfs(gtfs: Path, shape_routes: Dict[str, str], route_info: 
                 )
     shapes, seen = [], set()
     for shape_id, sequence in sorted(points.items()):
-        line = simplify_polyline([point for _, point in sorted(sequence)], MIN_LINE_DISTANCE)
+        line = [point for _, point in sorted(sequence)]
+        if shape_id in shape_ends:
+            ends = sorted(min(range(len(line)), key=lambda i: dist(line[i], end)) for end in shape_ends[shape_id])
+            line = line[ends[0] : ends[1] + 1]
+        line = simplify_polyline(line, MIN_LINE_DISTANCE)
         key = (shape_routes[shape_id], tuple(sorted({tuple(round_point(p)) for p in line[:: max(1, len(line) // 20)]})))
         if len(line) < 2 or key in seen:
             continue
@@ -953,7 +973,7 @@ def build_grid(land: MultiPolygon, masked_water: MultiPolygon, stations: Sequenc
                     "row": row,
                     "col": col,
                     "point": round_point(point),
-                    "access": [[index, round(meters, 1)] for index, meters in sorted(nearest.items(), key=lambda item: item[1])],
+                    "access": [[index, round(meters)] for index, meters in sorted(nearest.items(), key=lambda item: item[1])],
                 }
             )
     return cells, mask
@@ -1091,14 +1111,16 @@ def main() -> None:
     data_dir = ROOT / "data" / city["slug"]
     output_path = ROOT / "site" / "data" / f"{city['slug']}.json"
 
-    reference_date, complexes, edges, waits, route_info, shape_routes = extract_network(data_dir, city)
+    reference_date, complexes, edges, waits, route_info, shape_routes, shape_ends = extract_network(data_dir, city)
     for station in complexes:
         station["rail"] = any(route_info[route_id]["rail"] for route_id in station["routes"])
     communes, land = extract_communes(data_dir, city, complexes)
     arrondissements = extract_arrondissements(data_dir, city)
     bounds = multipolygon_bounds(land, LAND_PAD_METERS)
-    cols = round((bounds[2] - bounds[0]) / GRID_CELL_METERS)
-    rows = round((bounds[3] - bounds[1]) / GRID_CELL_METERS)
+    # Larger cells for a sprawling map (Montréal out to the exo termini): fewer cells to load and compute on a phone.
+    cell_meters = city.get("gridCellMeters", GRID_CELL_METERS)
+    cols = round((bounds[2] - bounds[0]) / cell_meters)
+    rows = round((bounds[3] - bounds[1]) / cell_meters)
     masked_water, water, parks = extract_water_and_parks(data_dir, bounds)
     context = extract_context(data_dir, city)
 
@@ -1109,7 +1131,7 @@ def main() -> None:
     if city.get("railGeometry") == "osm":
         routes = rail_routes_from_osm(data_dir, city, route_info)
     else:
-        routes = rail_routes_from_gtfs(gtfs_path(data_dir, city), shape_routes, route_info)
+        routes = rail_routes_from_gtfs(gtfs_path(data_dir, city), shape_routes, route_info, shape_ends)
 
     stations = [
         {

@@ -49,7 +49,7 @@ Particularités : le GTFS TCL (Lyon) se télécharge à la main sur data.grandly
 les nouvelles villes (`"communes": "served"`), la carte se limite aux communes réellement desservies.
 Options de carte : `"arrondissements": "<code INSEE>"` trace les arrondissements municipaux dans la commune (Marseille),
 et `"view": "stops"` cadre la vue initiale sur tous les arrêts, bus compris, plutôt que sur le seul réseau tram/métro.
-`"viewBbox": [sud, ouest, nord, est]` impose ce cadrage, et `"stopsBbox"` coupe les trajets aux arrêts de ce rectangle
+`"viewBbox": [sud, ouest, nord, est]` impose ce cadrage, `"gridCellMeters"` agrandit les cases de la carte (200 m par défaut ; 300 m pour Montréal, très étendue), et `"stopsBbox"` coupe les trajets aux arrêts de ce rectangle
 (GTFS régional d'Île-de-France : le RER va jusqu'à Creil). `routeModes` accepte un `route_id` quand le nom est ambigu
 (RER A et bus A). `originalMap` met en avant, en tête de page, une carte qui existait avant celle-ci (Paris : celle de
 Jules Grandin).
@@ -78,7 +78,7 @@ bateau (`fetch_data.py <ville> --rivers-only` télécharge cours d'eau et ponts)
    d'`epci`), recherche d'adresse via Photon (komoot, OSM) au lieu de la BAN, `stopNameRewrites` (paires regex →
    remplacement pour nettoyer les noms d'arrêts), `stopNameLanguage` (noms tirés de `translations.txt`, STIB), licence
    `ccby` (CC BY 4.0).
-   Plusieurs GTFS (REM à côté de la STM) : `gtfsExtra` (`slug`, `network`, `url`, `dataset`, `licence`) les fusionne dans
+   Plusieurs GTFS (REM et trains exo à côté de la STM) : `gtfsExtra` (`slug`, `network`, `url`, `dataset`, `licence`) les fusionne dans
    `data/<ville>/gtfs_merged.zip`, identifiants préfixés par le slug (`rem:S1`) ; `gtfsNetwork` nomme le flux principal,
    `mergeRoutes` regroupe les services d'une même ligne, `routeNames` renomme une ligne.
 3. `python3 build.py <ville> --fetch`, puis vérifier le tableau de contrôle et `node tools/check_trips.mjs <ville>`.

@@ -4,7 +4,7 @@
   "name": "Montréal",
   "country": "CA",
   "kind": "metro",
-  "network": "STM et REM",
+  "network": "STM, REM et exo",
   "gtfsNetwork": "STM",
   "metropole": "Agglomération de Montréal",
   "communesOsm": [
@@ -47,7 +47,42 @@
     2812764,
     8797549,
     8796997,
-    2798489
+    2798489,
+    2798654,
+    2812709,
+    8797076,
+    8797185,
+    8797238,
+    8797273,
+    8797316,
+    8797370,
+    8797542,
+    13983280,
+    19294937,
+    19294939,
+    7696236,
+    7696240,
+    7785148,
+    7703991,
+    7785147,
+    7785150,
+    7696243,
+    7696235,
+    7704069,
+    7903226,
+    7699994,
+    7903220,
+    7706380,
+    7703992,
+    7903229,
+    7042081,
+    7785153,
+    7698652,
+    8479338,
+    7703993,
+    7696237,
+    7704070,
+    7696239
   ],
   "gtfsUrl": "https://www.stm.info/sites/default/files/gtfs/gtfs_stm.zip",
   "gtfsDataset": "https://www.stm.info/fr/a-propos/developpeurs",
@@ -60,16 +95,16 @@
   "searchExample": "Oratoire Saint-Joseph",
   "published": "2026-10-06",
   "osmBbox": [
-    45.38,
-    -74.0,
-    45.72,
-    -73.38
+    45.3,
+    -74.3,
+    45.9,
+    -73.08
   ],
   "parksBbox": [
-    45.42,
-    -73.75,
-    45.62,
-    -73.48
+    45.3,
+    -74.3,
+    45.9,
+    -73.08
   ],
   "stopNameRewrites": [
     [
@@ -83,11 +118,17 @@
     [
       " (- Q|q)uai \\d+$",
       ""
+    ],
+    [
+      "^Gare (?!Centrale$)",
+      ""
     ]
   ],
   "rivers": [
     "Fleuve Saint-Laurent",
-    "Rivière des Prairies"
+    "Rivière des Prairies",
+    "Rivière des Mille Îles",
+    "Rivière Richelieu"
   ],
   "gtfsExtra": [
     {
@@ -96,16 +137,40 @@
       "url": "https://gtfs.gpmmom.ca/gtfs/gtfs.zip",
       "dataset": "https://www.transit.land/feeds/f-reseau~express~metropolitain",
       "licence": "ccby"
+    },
+    {
+      "slug": "exo",
+      "network": "exo",
+      "url": "https://files.mobilitydatabase.org/mdb-748/latest.zip",
+      "dataset": "https://www.donneesquebec.ca/recherche/dataset/exo-trains-gtfs",
+      "licence": "ccby"
     }
   ],
   "routeModes": {
-    "rem:S1": "metro"
+    "rem:S1": "metro",
+    "exo:1": "train",
+    "exo:4": "train",
+    "exo:3": "train",
+    "exo:5": "train",
+    "exo:6": "train"
   },
   "routeNames": {
-    "rem:S1": "REM"
+    "rem:S1": "REM",
+    "exo:1": "exo1",
+    "exo:4": "exo2",
+    "exo:3": "exo3",
+    "exo:5": "exo4",
+    "exo:6": "exo5"
   },
   "mergeRoutes": {
     "rem:S2": "rem:S1",
     "rem:S3": "rem:S1"
-  }
+  },
+  "viewBbox": [
+    45.4,
+    -73.963,
+    45.683,
+    -73.419
+  ],
+  "gridCellMeters": 300
 }

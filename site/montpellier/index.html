@@ -200,7 +200,7 @@
             <a class="city-item" href="../lyon/" data-name="lyon"><img src="../og/thumb-lyon.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Lyon</strong><small>Métro et tram · TCL</small></span></a>
             <a class="city-item" href="../marseille/" data-name="marseille"><img src="../og/thumb-marseille.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Marseille</strong><small>Métro et tram · RTM</small></span></a>
             <a class="city-item current" href="../montpellier/" aria-current="page" data-name="montpellier"><img src="../og/thumb-montpellier.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montpellier</strong><small>Tram · TaM</small></span></a>
-            <a class="city-item" href="../montreal/" data-name="montréal"><img src="../og/thumb-montreal.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montréal</strong><small>Métro · STM et REM</small></span></a>
+            <a class="city-item" href="../montreal/" data-name="montréal"><img src="../og/thumb-montreal.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montréal</strong><small>Métro · STM, REM et exo</small></span></a>
             <a class="city-item" href="../nantes/" data-name="nantes"><img src="../og/thumb-nantes.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nantes</strong><small>Tram · Naolib</small></span></a>
             <a class="city-item" href="../nice/" data-name="nice"><img src="../og/thumb-nice.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nice</strong><small>Tram · Lignes d&#x27;Azur</small></span></a>
             <a class="city-item" href="../orleans/" data-name="orléans"><img src="../og/thumb-orleans.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Orléans</strong><small>Tram · TAO</small></span></a>
@@ -274,9 +274,9 @@
         </div>
 
         <div class="controls">
-          <div class="control-group">
+          <div id="networkToggles" class="control-group">
             <span class="control-label">Réseau</span>
-            <label class="pill-toggle"><input type="checkbox" checked disabled /> Tram</label>
+            <label id="railToggle" class="pill-toggle"><input type="checkbox" checked disabled /> Tram</label>
             <label class="pill-toggle"><input id="busToggle" type="checkbox" /> Bus</label>
           </div>
           <div id="isoToggles" class="control-group">
@@ -494,7 +494,7 @@
             <img src="../og/thumb-montreal.jpg" width="600" height="315" alt="" loading="lazy" />
             <span class="city-card-body">
               <h3>Montréal à portée de métro</h3>
-              <span>88&nbsp;% des stations de métro à moins de 30&nbsp;min du centre (Place Émilie-Gamelin) · réseau STM et REM</span>
+              <span>58&nbsp;% des stations de métro à moins de 30&nbsp;min du centre (Place Émilie-Gamelin) · réseau STM, REM et exo</span>
             </span>
           </a>
           <a class="city-card" href="../bruxelles/">
@@ -543,7 +543,7 @@
     </footer>
 
     <div id="toast" class="toast" role="status" hidden></div>
-    <script type="module" src="../app.js?v=5bc746c1"></script>
+    <script type="module" src="../app.js?v=dac3ab1f"></script>
     <!-- Cloudflare Web Analytics (sans cookie). "spa": false : les mises à jour de l'URL ne comptent pas comme des pages vues. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1904c17ed0624c0cab4d69ea1bacc5e7", "spa": false}'></script>
   </body>

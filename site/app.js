@@ -19,6 +19,8 @@ const MODE_LABELS = {
   busway: "Busway",
   bus: "Bus",
 };
+// Ordre des cases « Réseau » quand une ville a plusieurs modes lourds (Montréal : métro et train).
+const MODE_ORDER = ["metro", "rer", "train", "tram", "busway", "funicular", "cable"];
 const DEFAULT_MAX = 45;
 const ISOCHRONE_OPTIONS = [15, 30, 45, 60];
 const DEFAULT_ISOCHRONES = [15, 30];
@@ -73,6 +75,7 @@ const app = {
   from: null, // { point, label }
   to: null, // { point, label }
   includeBus: false,
+  disabledModes: new Set(), // modes lourds décochés (« Métro » à Montréal pour ne garder que le train)
   maxMinutes: DEFAULT_MAX,
   isochrones: [...DEFAULT_ISOCHRONES],
   heatFrom: "from", // la heatmap part du départ ou de l'arrivée
@@ -285,7 +288,32 @@ function prepareGraph(data) {
     access: Float32Array.from(data.routeStates, (state) => state.access),
     route: data.routeStates.map((state) => state.routeId),
     isBus: Uint8Array.from(data.routeStates, (state) => (data.routeInfo[state.routeId]?.rail ? 0 : 1)),
+    mode: data.routeStates.map((state) => data.routeInfo[state.routeId]?.mode),
+    // Recalculés par updateUsable() selon les cases « Réseau » cochées.
+    off: new Uint8Array(data.routeStates.length),
+    stationOn: new Uint8Array(data.stations.length),
+    stationRailOn: new Uint8Array(data.stations.length),
   };
+}
+
+/** Modes lourds présents dans la ville, dans l'ordre des cases. */
+function railModes(data) {
+  const modes = new Set(Object.values(data.routeInfo).filter((info) => info.rail).map((info) => info.mode));
+  return [...modes].sort((a, b) => MODE_ORDER.indexOf(a) - MODE_ORDER.indexOf(b));
+}
+
+/** Marque les lignes utilisables (mode coché) et les arrêts qui en ont au moins une. */
+function updateUsable() {
+  const { graph } = app;
+  graph.stationOn.fill(0);
+  graph.stationRailOn.fill(0);
+  for (let state = 0; state < graph.count; state += 1) {
+    const off = graph.isBus[state] ? !app.includeBus : app.disabledModes.has(graph.mode[state]);
+    graph.off[state] = off ? 1 : 0;
+    if (off) continue;
+    graph.stationOn[graph.station[state]] = 1;
+    if (!graph.isBus[state]) graph.stationRailOn[graph.station[state]] = 1;
+  }
 }
 
 function walkMinutes(meters) {
@@ -293,7 +321,7 @@ function walkMinutes(meters) {
 }
 
 function stationUsable(index) {
-  return app.includeBus || app.data.stations[index].rail;
+  return app.graph.stationOn[index] === 1;
 }
 
 /** Plus courts chemins depuis un point : temps d'arrivée à chaque arrêt + prédécesseurs. */
@@ -317,7 +345,7 @@ function solveFrom(point) {
 
   for (const seed of seeds) {
     for (const state of data.stationStates[seed.index]) {
-      if (!app.includeBus && graph.isBus[state]) continue;
+      if (graph.off[state]) continue;
       const walk = seed.walk + graph.access[state];
       const time = walk + graph.wait[state];
       if (time < dist[state]) {
@@ -333,7 +361,7 @@ function solveFrom(point) {
     const base = dist[state];
     for (let e = graph.offsets[state]; e < graph.offsets[state + 1]; e += 1) {
       const next = graph.targets[e];
-      if (!app.includeBus && graph.isBus[next]) continue;
+      if (graph.off[next]) continue;
       const time = base + graph.weights[e];
       if (time < dist[next]) {
         dist[next] = time;
@@ -612,7 +640,7 @@ function buildPaths(data) {
 
   const routes = new Map();
   for (const route of data.routes) {
-    if (!routes.has(route.id)) routes.set(route.id, { color: route.color, path: new Path2D() });
+    if (!routes.has(route.id)) routes.set(route.id, { id: route.id, color: route.color, path: new Path2D() });
     const { path } = routes.get(route.id);
     route.points.forEach(([x, y], i) => (i ? path.lineTo(x - ox, y - oy) : path.moveTo(x - ox, y - oy)));
   }
@@ -739,17 +767,18 @@ function drawIsochrones() {
 
 function drawStops() {
   const { stations } = app.data;
+  const { stationOn, stationRailOn } = app.graph;
   if (app.includeBus) {
     ctx.fillStyle = "rgba(60, 60, 60, 0.45)";
-    for (const station of stations) {
-      if (station.rail) continue;
+    for (const [index, station] of stations.entries()) {
+      if (stationRailOn[index] || !stationOn[index]) continue;
       const [x, y] = project(station.point);
       ctx.fillRect(x - 1, y - 1, 2, 2);
     }
   }
   const radius = app.view.scale > STOP_LABEL_SCALE ? 3.2 : 2.2;
-  for (const station of stations) {
-    if (!station.rail) continue;
+  for (const [index, station] of stations.entries()) {
+    if (!stationRailOn[index]) continue;
     const [x, y] = project(station.point);
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, Math.PI * 2);
@@ -762,8 +791,8 @@ function drawStops() {
   if (app.view.scale > STOP_LABEL_SCALE) {
     ctx.textAlign = "left";
     ctx.textBaseline = "middle";
-    for (const station of stations) {
-      if (!station.rail) continue;
+    for (const [index, station] of stations.entries()) {
+      if (!stationRailOn[index]) continue;
       const [x, y] = project(station.point);
       if (x < -50 || y < -20 || x > app.size.width + 50 || y > app.size.height + 20) continue;
       drawHaloText(station.name, x + 6, y, { font: "500 11px Inter, sans-serif", color: "#333" });
@@ -856,10 +885,13 @@ function render() {
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
   for (const route of app.paths.routes) {
+    // Ligne d'un mode décoché : estompée, pour garder le repère sans laisser croire qu'on l'emprunte.
+    ctx.globalAlpha = app.disabledModes.has(app.data.routeInfo[route.id]?.mode) ? 0.2 : 1;
     ctx.strokeStyle = route.color;
     ctx.lineWidth = 3 * px;
     ctx.stroke(route.path);
   }
+  ctx.globalAlpha = 1;
 
   drawIsochrones();
   useScreenTransform();
@@ -1015,17 +1047,29 @@ function updatePanel() {
 
   if (app.heatSolution) {
     const source = heatSource();
-    const tram = app.data.stations.map((station, index) => ({ station, index })).filter(({ station }) => station.rail);
+    const tram = app.data.stations
+      .map((station, index) => ({ station, index }))
+      .filter(({ index }) => app.graph.stationRailOn[index]);
     const reachable = tram.filter(({ station, index }) => {
       const byFoot = walkMinutes(hypot(source.point, station.point));
       return Math.min(byFoot, app.heatSolution.stationTime[index]) <= REACH_MINUTES;
     }).length;
-    const percent = Math.round((reachable / tram.length) * 100);
+    const percent = tram.length ? Math.round((reachable / tram.length) * 100) : 0;
     const where = source === app.from ? "de ce départ" : "de cette arrivée";
-    $("reach").textContent = `${percent} % des ${CITY.railStations} sont à moins de ${REACH_MINUTES} minutes ${where}${
-      app.includeBus ? ` (${CITY.railNoun} + ${CITY.busNoun})` : ""
-    }.`;
+    // Métro décoché (Montréal) : « stations de métro » ne parle plus que des gares.
+    const stationsNoun = app.disabledModes.size ? "stations" : CITY.railStations;
+    $("reach").textContent = `${percent} % des ${stationsNoun} sont à moins de ${REACH_MINUTES} minutes ${where}${networkNote()}.`;
   }
+}
+
+/** « (métro + bus) » quand le réseau n'est pas celui par défaut. */
+function networkNote() {
+  if (!app.disabledModes.size) return app.includeBus ? ` (${CITY.railNoun} + ${CITY.busNoun})` : "";
+  const parts = railModes(app.data)
+    .filter((mode) => !app.disabledModes.has(mode))
+    .map((mode) => MODE_LABELS[mode].toLowerCase());
+  if (app.includeBus) parts.push(CITY.busNoun);
+  return ` (${parts.join(" + ")})`;
 }
 
 function contrastText(hex) {
@@ -1058,6 +1102,7 @@ function syncUrl() {
   if (app.to) params.set("to", formatPair(app.to.point));
   if (app.to && app.heatFrom === "to") params.set("carte", "arrivee");
   if (app.includeBus) params.set("bus", "1");
+  if (app.disabledModes.size) params.set("sans", [...app.disabledModes].join(","));
   if (app.maxMinutes !== DEFAULT_MAX) params.set("max", String(app.maxMinutes));
   const iso = [...app.isochrones].sort((a, b) => a - b).join(",");
   if (iso !== DEFAULT_ISOCHRONES.join(",")) params.set("iso", iso || "0");
@@ -1069,6 +1114,14 @@ function restoreFromUrl() {
   const params = new URLSearchParams(location.search);
   app.includeBus = params.get("bus") === "1";
   $("busToggle").checked = app.includeBus;
+  const modes = railModes(app.data);
+  const off = (params.get("sans") ?? "").split(",").filter((mode) => modes.includes(mode));
+  // Un lien qui décocherait tout (bus compris) garde le réseau par défaut.
+  app.disabledModes = new Set(off.length < modes.length || app.includeBus ? off : []);
+  for (const input of $("networkToggles").querySelectorAll("input[data-mode]")) {
+    input.checked = !app.disabledModes.has(input.dataset.mode);
+  }
+  updateUsable();
   const max = Number(params.get("max"));
   if (max >= 20 && max <= 90) app.maxMinutes = max;
   $("maxRange").value = String(app.maxMinutes);
@@ -1258,8 +1311,44 @@ $("fullscreen").addEventListener("click", () => {
   else stage.requestFullscreen?.();
 });
 
-$("busToggle").addEventListener("change", (event) => {
-  app.includeBus = event.target.checked;
+/** Une case par mode lourd quand la ville en a plusieurs (Montréal : métro et train) ; sinon la case figée du modèle. */
+function buildModeToggles() {
+  const modes = railModes(app.data);
+  if (modes.length < 2) return;
+  const busLabel = $("busToggle").closest("label");
+  $("railToggle").remove();
+  for (const mode of modes) {
+    const label = document.createElement("label");
+    label.className = "pill-toggle";
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = true;
+    input.dataset.mode = mode;
+    label.append(input, ` ${MODE_LABELS[mode] ?? mode}`);
+    busLabel.before(label);
+  }
+}
+
+$("networkToggles").addEventListener("change", (event) => {
+  const input = event.target;
+  const mode = input.dataset.mode;
+  if (mode) {
+    if (input.checked) app.disabledModes.delete(mode);
+    else app.disabledModes.add(mode);
+  } else if (input.id === "busToggle") {
+    app.includeBus = input.checked;
+  } else {
+    return;
+  }
+  if (app.disabledModes.size === railModes(app.data).length && !app.includeBus) {
+    // Il faut bien un moyen de transport : on annule la case décochée.
+    input.checked = true;
+    if (mode) app.disabledModes.delete(mode);
+    else app.includeBus = true;
+    toast("Gardez au moins un mode de transport.");
+    return;
+  }
+  updateUsable();
   recompute();
   syncUrl();
 });
@@ -1476,6 +1565,7 @@ async function init() {
   app.graph = prepareGraph(app.data);
   app.rivers = indexRivers(app.data.rivers);
   app.paths = buildPaths(app.data);
+  buildModeToggles();
   app.size.width = 0;
   resize();
   restoreFromUrl();

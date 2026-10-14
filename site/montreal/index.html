@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Montréal à portée de métro · Temps de trajet en métro STM et REM</title>
-    <meta name="description" content="Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau STM et REM)." />
+    <title>Montréal à portée de métro · Temps de trajet en métro STM, REM et exo</title>
+    <meta name="description" content="Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau STM, REM et exo)." />
     <script>
       // Anciens liens github.io : on renvoie vers le domaine du site en gardant départ et arrivée.
       if (location.hostname.endsWith("github.io")) location.replace("https://tram.camilleroux.com/montreal/" + location.search);
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="À portée de tram" />
     <meta property="og:title" content="Montréal à portée de métro" />
-    <meta property="og:description" content="Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau STM et REM)." />
+    <meta property="og:description" content="Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau STM, REM et exo)." />
     <meta property="og:url" content="https://tram.camilleroux.com/montreal/" />
     <meta property="og:image" content="https://tram.camilleroux.com/og/montreal.jpg?v=3967260d" />
     <meta property="og:image:width" content="1200" />
@@ -30,7 +30,7 @@
     <meta property="article:published_time" content="2026-10-06T08:00:00+02:00" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Montréal à portée de métro" />
-    <meta name="twitter:description" content="Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau STM et REM)." />
+    <meta name="twitter:description" content="Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu&#x27;il faut pour y aller (réseau STM, REM et exo)." />
     <meta name="twitter:image" content="https://tram.camilleroux.com/og/montreal.jpg?v=3967260d" />
     <script type="application/ld+json">
     {
@@ -40,7 +40,7 @@
           "@type": "WebApplication",
           "name": "Montréal à portée de métro",
           "url": "https://tram.camilleroux.com/montreal/",
-          "description": "Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu'il faut pour y aller (réseau STM et REM).",
+          "description": "Carte des temps de trajet en métro à Montréal : choisissez un départ, toute la ville se colore selon le temps qu'il faut pour y aller (réseau STM, REM et exo).",
           "inLanguage": "fr",
           "applicationCategory": "TravelApplication",
           "operatingSystem": "Web",
@@ -58,7 +58,7 @@
             "https://julesgrandin.github.io/paris-temps-transport/"
           ],
           "datePublished": "2026-10-06",
-          "dateModified": "2026-10-06"
+          "dateModified": "2026-10-11"
         },
         {
           "@type": "BreadcrumbList",
@@ -85,7 +85,7 @@
               "name": "Combien de temps faut-il pour traverser Montréal en métro ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Depuis le centre (Place Émilie-Gamelin), 34 % des stations de métro sont à moins de 15 minutes et 88 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Anse-à-l'Orme, est à environ 44 minutes."
+                "text": "Depuis le centre (Place Émilie-Gamelin), 22 % des stations de métro sont à moins de 15 minutes et 58 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Hudson, est à environ 99 minutes."
               }
             },
             {
@@ -93,7 +93,7 @@
               "name": "Quelle est la fréquence des lignes de métro à Montréal ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de métro 1 : 4,3 min, métro 2 : 4,3 min, métro 4 : 6,8 min, métro 5 : 5,7 min, métro REM : 4,8 min. La ligne la plus fréquente est la 1, avec un passage toutes les 4,3 minutes environ."
+                "text": "En journée de semaine, l'intervalle moyen entre deux passages est de métro 1 : 4,3 min, métro 2 : 4,3 min, métro 4 : 6,8 min, métro 5 : 5,7 min, métro REM : 4,8 min, train exo1 : 30 min, train exo2 : 30 min, train exo3 : 30 min, train exo4 : 30 min, train exo5 : 30 min. La ligne la plus fréquente est la 1, avec un passage toutes les 4,3 minutes environ."
               }
             },
             {
@@ -101,7 +101,7 @@
               "name": "D'où viennent les horaires utilisés ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Des horaires théoriques publiés par le réseau STM et REM (format GTFS, CC BY 4.0), téléchargés le 6 octobre 2026 et valables jusqu'au 31 décembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h."
+                "text": "Des horaires théoriques publiés par le réseau STM, REM et exo (format GTFS, CC BY 4.0), téléchargés le 11 octobre 2026 et valables jusqu'au 3 janvier 2027. Les temps correspondent au mardi 13 octobre 2026, entre 7 h et 20 h."
               }
             },
             {
@@ -163,7 +163,7 @@
     <link rel="stylesheet" href="../styles.css?v=9fd31043" />
   </head>
   <body>
-    <script id="city-config" type="application/json">{"slug": "montreal", "name": "Montréal", "dataVersion": "ae8bb6e8", "defaultFrom": {"lat": 45.5156, "lon": -73.562, "label": "Place Émilie-Gamelin"}, "railNoun": "métro", "railStations": "stations de métro", "busNoun": "bus", "geocoder": "photon", "searchBbox": [45.38, -74.0, 45.72, -73.38]}</script>
+    <script id="city-config" type="application/json">{"slug": "montreal", "name": "Montréal", "dataVersion": "9cd24b87", "defaultFrom": {"lat": 45.5156, "lon": -73.562, "label": "Place Émilie-Gamelin"}, "railNoun": "métro", "railStations": "stations de métro", "busNoun": "bus", "geocoder": "photon", "searchBbox": [45.3, -74.3, 45.9, -73.08]}</script>
     <header class="topbar">
       <nav class="topbar-inner" aria-label="Navigation principale">
         <a class="brand" href="../"><img src="../favicon.svg" width="22" height="22" alt="" /> À portée de tram</a>
@@ -200,7 +200,7 @@
             <a class="city-item" href="../lyon/" data-name="lyon"><img src="../og/thumb-lyon.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Lyon</strong><small>Métro et tram · TCL</small></span></a>
             <a class="city-item" href="../marseille/" data-name="marseille"><img src="../og/thumb-marseille.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Marseille</strong><small>Métro et tram · RTM</small></span></a>
             <a class="city-item" href="../montpellier/" data-name="montpellier"><img src="../og/thumb-montpellier.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montpellier</strong><small>Tram · TaM</small></span></a>
-            <a class="city-item current" href="../montreal/" aria-current="page" data-name="montréal"><img src="../og/thumb-montreal.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montréal</strong><small>Métro · STM et REM</small></span></a>
+            <a class="city-item current" href="../montreal/" aria-current="page" data-name="montréal"><img src="../og/thumb-montreal.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Montréal</strong><small>Métro · STM, REM et exo</small></span></a>
             <a class="city-item" href="../nantes/" data-name="nantes"><img src="../og/thumb-nantes.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nantes</strong><small>Tram · Naolib</small></span></a>
             <a class="city-item" href="../nice/" data-name="nice"><img src="../og/thumb-nice.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Nice</strong><small>Tram · Lignes d&#x27;Azur</small></span></a>
             <a class="city-item" href="../orleans/" data-name="orléans"><img src="../og/thumb-orleans.jpg" width="120" height="63" alt="" loading="lazy" /><span><strong>Orléans</strong><small>Tram · TAO</small></span></a>
@@ -274,9 +274,9 @@
         </div>
 
         <div class="controls">
-          <div class="control-group">
+          <div id="networkToggles" class="control-group">
             <span class="control-label">Réseau</span>
-            <label class="pill-toggle"><input type="checkbox" checked disabled /> Métro</label>
+            <label id="railToggle" class="pill-toggle"><input type="checkbox" checked disabled /> Métro</label>
             <label class="pill-toggle"><input id="busToggle" type="checkbox" /> Bus</label>
           </div>
           <div id="isoToggles" class="control-group">
@@ -303,13 +303,13 @@
       <section class="section" aria-labelledby="stats-title">
         <h2 id="stats-title">Montréal en chiffres</h2>
         <div class="stat-grid">
-          <div class="stat"><strong>88 %</strong><span>des stations de métro à moins de 30 min du centre (Place Émilie-Gamelin)</span></div>
-          <div class="stat"><strong>89</strong><span>stations de métro</span></div>
+          <div class="stat"><strong>58 %</strong><span>des stations de métro à moins de 30 min du centre (Place Émilie-Gamelin)</span></div>
+          <div class="stat"><strong>135</strong><span>stations de métro</span></div>
           <div class="stat"><strong>4,3 min</strong><span>entre deux passages sur la ligne 1, la plus fréquente</span></div>
-          <div class="stat"><strong>44 min</strong><span>depuis le centre pour rejoindre Anse-à-l&#x27;Orme, la station la plus éloignée</span></div>
+          <div class="stat"><strong>99 min</strong><span>depuis le centre pour rejoindre Hudson, la station la plus éloignée</span></div>
         </div>
         <table class="lines-table">
-          <caption>Lignes de métro du réseau STM et REM, en journée de semaine</caption>
+          <caption>Lignes de métro du réseau STM, REM et exo, en journée de semaine</caption>
           <thead><tr><th scope="col">Ligne</th><th scope="col">Stations</th><th scope="col">Un passage toutes les</th></tr></thead>
           <tbody>
             <tr><td><span class="line-badge" style="background:#00B300;color:#fff">1</span> Métro</td><td>27</td><td>~4,3 min</td></tr>
@@ -317,6 +317,11 @@
             <tr><td><span class="line-badge" style="background:#FFD900;color:#111">4</span> Métro</td><td>3</td><td>~6,8 min</td></tr>
             <tr><td><span class="line-badge" style="background:#0095E6;color:#fff">5</span> Métro</td><td>12</td><td>~5,7 min</td></tr>
             <tr><td><span class="line-badge" style="background:#73A400;color:#fff">REM</span> Métro</td><td>23</td><td>~4,8 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#F16179;color:#fff">exo1</span> Train</td><td>18</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#FDD26E;color:#111">exo2</span> Train</td><td>14</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#999AC6;color:#111">exo3</span> Train</td><td>7</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#5AB6B2;color:#111">exo4</span> Train</td><td>9</td><td>~30 min</td></tr>
+            <tr><td><span class="line-badge" style="background:#CA5898;color:#fff">exo5</span> Train</td><td>11</td><td>~30 min</td></tr>
           </tbody>
         </table>
 
@@ -324,9 +329,9 @@
 
       <section class="section" aria-labelledby="faq-title">
         <h2 id="faq-title">Questions fréquentes</h2>
-        <details class="faq"><summary>Combien de temps faut-il pour traverser Montréal en métro ?</summary><p>Depuis le centre (Place Émilie-Gamelin), 34 % des stations de métro sont à moins de 15 minutes et 88 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Anse-à-l&#x27;Orme, est à environ 44 minutes.</p></details>
-        <details class="faq"><summary>Quelle est la fréquence des lignes de métro à Montréal ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro 1 : 4,3 min, métro 2 : 4,3 min, métro 4 : 6,8 min, métro 5 : 5,7 min, métro REM : 4,8 min. La ligne la plus fréquente est la 1, avec un passage toutes les 4,3 minutes environ.</p></details>
-        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau STM et REM (format GTFS, CC BY 4.0), téléchargés le 6 octobre 2026 et valables jusqu&#x27;au 31 décembre 2026. Les temps correspondent au mardi 6 octobre 2026, entre 7 h et 20 h.</p></details>
+        <details class="faq"><summary>Combien de temps faut-il pour traverser Montréal en métro ?</summary><p>Depuis le centre (Place Émilie-Gamelin), 22 % des stations de métro sont à moins de 15 minutes et 58 % à moins de 30 minutes, marche et attente comprises. La plus éloignée, Hudson, est à environ 99 minutes.</p></details>
+        <details class="faq"><summary>Quelle est la fréquence des lignes de métro à Montréal ?</summary><p>En journée de semaine, l&#x27;intervalle moyen entre deux passages est de métro 1 : 4,3 min, métro 2 : 4,3 min, métro 4 : 6,8 min, métro 5 : 5,7 min, métro REM : 4,8 min, train exo1 : 30 min, train exo2 : 30 min, train exo3 : 30 min, train exo4 : 30 min, train exo5 : 30 min. La ligne la plus fréquente est la 1, avec un passage toutes les 4,3 minutes environ.</p></details>
+        <details class="faq"><summary>D&#x27;où viennent les horaires utilisés ?</summary><p>Des horaires théoriques publiés par le réseau STM, REM et exo (format GTFS, CC BY 4.0), téléchargés le 11 octobre 2026 et valables jusqu&#x27;au 3 janvier 2027. Les temps correspondent au mardi 13 octobre 2026, entre 7 h et 20 h.</p></details>
         <details class="faq"><summary>Les bus sont-ils pris en compte à Montréal ?</summary><p>Oui, en option : cochez « Bus » sous la carte. Par défaut, seuls les métro sont affichés. L&#x27;attente aux arrêts de bus peu fréquentés est plafonnée à 15 minutes.</p></details>
         <details class="faq"><summary>Comment les temps de trajet sont-ils calculés ?</summary><p>Pour chaque trajet : marche jusqu&#x27;à l&#x27;arrêt à 4,5 km/h, attente égale à la moitié de l&#x27;intervalle entre deux passages, durée prévue entre les arrêts, correspondances avec 1,5 minute de marche, et 1 minute pour rejoindre le quai du métro. Pas de temps réel ni de perturbations : c&#x27;est la ville « sur le papier ».</p></details>
         <details class="faq"><summary>Qui a réalisé cette carte de Montréal ?</summary><p>L'idée vient du <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio, adapté ensuite à Paris par Jules Grandin (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>). Ces cartes sont réalisées par <a href="https://www.camilleroux.com/" rel="author">Camille Roux</a>, développeur et co-fondateur de Human Coders à Montpellier&nbsp;: découvrez <a href="https://www.camilleroux.com/realisations/">ses autres réalisations</a>. Le code est ouvert sur <a href="https://github.com/camilleroux/montpellier-temps-transport">GitHub</a>.</p></details>
@@ -526,7 +531,7 @@
           Idée originale&nbsp;: le <a href="https://castrio.me/nyc/">NYC Transit Time Cartogram</a> d'Anthony Castrio,
           adapté ensuite à Paris par Jules Grandin
           (<a href="https://julesgrandin.github.io/paris-temps-transport/">C'est encore loin&nbsp;?</a>).
-          Horaires&nbsp;: <a href="https://www.stm.info/fr/a-propos/developpeurs">GTFS STM</a> et <a href="https://www.transit.land/feeds/f-reseau~express~metropolitain">GTFS REM</a> (Agglomération de Montréal). Fond de carte © <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>,
+          Horaires&nbsp;: <a href="https://www.stm.info/fr/a-propos/developpeurs">GTFS STM</a> et <a href="https://www.transit.land/feeds/f-reseau~express~metropolitain">GTFS REM</a> et <a href="https://www.donneesquebec.ca/recherche/dataset/exo-trains-gtfs">GTFS exo</a> (Agglomération de Montréal). Fond de carte © <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>,
           limites administratives OpenStreetMap, recherche d'adresse via
           <a href="https://photon.komoot.io/">Photon</a> (komoot, données OpenStreetMap).
           Données calculées publiées sous licence <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>, code sous licence MIT.
@@ -535,7 +540,7 @@
     </footer>
 
     <div id="toast" class="toast" role="status" hidden></div>
-    <script type="module" src="../app.js?v=5bc746c1"></script>
+    <script type="module" src="../app.js?v=dac3ab1f"></script>
     <!-- Cloudflare Web Analytics (sans cookie). "spa": false : les mises à jour de l'URL ne comptent pas comme des pages vues. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1904c17ed0624c0cab4d69ea1bacc5e7", "spa": false}'></script>
   </body>

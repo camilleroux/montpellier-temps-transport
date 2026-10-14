@@ -1,14 +1,14 @@
 {
   "city": "Montréal",
-  "builtAt": "2026-10-06T13:07:48+00:00",
-  "referenceDate": "2026-10-06",
+  "builtAt": "2026-10-11T23:35:09+00:00",
+  "referenceDate": "2026-10-13",
   "serviceWindow": "7h–20h",
   "gtfs": {
-    "network": "STM et REM",
+    "network": "STM, REM et exo",
     "dataset": "https://www.stm.info/fr/a-propos/developpeurs",
     "source": "https://www.stm.info/sites/default/files/gtfs/gtfs_stm.zip",
     "how": "download",
-    "fetchedAt": "2026-10-06T13:03:06+00:00",
+    "fetchedAt": "2026-10-11T23:10:36+00:00",
     "bytes": 42928416,
     "sha256": "1b8e59076ee50773e80bca33dd5f4f95f24bd3d0ee6283ffb62337f5bf8eb0da",
     "feedInfo": {
@@ -21,7 +21,7 @@
     },
     "servicePeriod": [
       "2026-05-19",
-      "2026-12-31"
+      "2027-01-03"
     ]
   },
   "gtfsExtra": [
@@ -30,41 +30,50 @@
       "dataset": "https://www.transit.land/feeds/f-reseau~express~metropolitain",
       "source": "https://gtfs.gpmmom.ca/gtfs/gtfs.zip",
       "how": "download",
-      "fetchedAt": "2026-10-06T13:03:07+00:00",
+      "fetchedAt": "2026-10-11T23:10:36+00:00",
       "bytes": 287495,
       "sha256": "9263a39e4dff0ee8d1ffb23bacb0884bad90e86cb44f80c6b0b3c7cd18d3b577"
+    },
+    {
+      "network": "exo",
+      "dataset": "https://www.donneesquebec.ca/recherche/dataset/exo-trains-gtfs",
+      "source": "https://files.mobilitydatabase.org/mdb-748/latest.zip",
+      "how": "download",
+      "fetchedAt": "2026-10-11T23:10:36+00:00",
+      "bytes": 113629,
+      "sha256": "436c8c991b5e4fa9df0e020c66622403e0b0b77f2e854cec1215ccb48044eaae"
     }
   ],
   "communes": {
     "metropole": "Agglomération de Montréal",
-    "source": "Overpass API: [out:json][timeout:110];(relation(8803535);relation(8803286);relation(8806187);relation(8806483);relation(8805426);relation(5363262);relation(1878503);relation(8805747);relation(8803356);relation(8803462);relation(8803553);relation(8806364);relation(8802299);relation(8803540);relation(8806186);relation(8803537);relation(8805573);relation(1572820);relation(8803536);relation(197579);relation(197578);relation(5361655);relation(197601);relation(197562);relation(197569);relation(197577);relation(197567);relation(1634159);relation(7022381);relation(197576);relation(197580);relation(197583);relation(197561);relation(8797481);relation(8797405);relation(19294938);relation(2812764);relation(8797549);relation(8796997);relation(2798489););out geom;",
+    "source": "Overpass API: [out:json][timeout:110];(relation(8803535);relation(8803286);relation(8806187);relation(8806483);relation(8805426);relation(5363262);relation(1878503);relation(8805747);relation(8803356);relation(8803462);relation(8803553);relation(8806364);relation(8802299);relation(8803540);relation(8806186);relation(8803537);relation(8805573);relation(1572820);relation(8803536);relation(197579);relation(197578);relation(5361655);relation(197601);relation(197562);relation(197569);relation(197577);relation(197567);relation(1634159);relation(7022381);relation(197576);relation(197580);relation(197583);relation(197561);relation(8797481);relation(8797405);relation(19294938);relation(2812764);relation(8797549);relation(8796997);relation(2798489);relation(2798654);relation(2812709);relation(8797076);relation(8797185);relation(8797238);relation(8797273);relation(8797316);relation(8797370);relation(8797542);relation(13983280);relation(19294937);relation(19294939);relation(7696236);relation(7696240);relation(7785148);relation(7703991);relation(7785147);relation(7785150);relation(7696243);relation(7696235);relation(7704069);relation(7903226);relation(7699994);relation(7903220);relation(7706380);relation(7703992);relation(7903229);relation(7042081);relation(7785153);relation(7698652);relation(8479338);relation(7703993);relation(7696237);relation(7704070);relation(7696239););out geom;",
     "how": "download",
-    "fetchedAt": "2026-10-06T13:05:40+00:00",
-    "bytes": 538103,
-    "sha256": "4e2be6387580c9325873b7e2108658c00d3a59a8052c7a608f1f5156796f61d3"
+    "fetchedAt": "2026-10-11T23:11:28+00:00",
+    "bytes": 958517,
+    "sha256": "6c9ee3cfb944d25b97afd2fadb11d6130105fb35a8abf27b38676f9001fdf61a"
   },
   "openStreetMap": {
     "licence": "ODbL, © contributeurs OpenStreetMap",
     "osm_water_parks": {
-      "source": "Overpass API: [out:json][timeout:180];(relation[\"natural\"=\"water\"](45.38,-74.0,45.72,-73.38);way[\"natural\"=\"water\"](45.38,-74.0,45.72,-73.38);relation[\"leisure\"=\"park\"](45.42,-73.75,45.62,-73.48);way[\"leisure\"=\"park\"](45.42,-73.75,45.62,-73.48););out geom;",
+      "source": "Overpass API: [out:json][timeout:180];(relation[\"natural\"=\"water\"](45.3,-74.3,45.9,-73.08);way[\"natural\"=\"water\"](45.3,-74.3,45.9,-73.08);relation[\"leisure\"=\"park\"](45.3,-74.3,45.9,-73.08);way[\"leisure\"=\"park\"](45.3,-74.3,45.9,-73.08););out geom;",
       "how": "download",
-      "fetchedAt": "2026-10-06T13:05:56+00:00",
-      "bytes": 8675735,
-      "sha256": "655184fcd4e077b2af64e78053cb3561db4f8746d7bd9e3eb803ed1e6bf50677"
+      "fetchedAt": "2026-10-11T23:12:01+00:00",
+      "bytes": 20559695,
+      "sha256": "078c2f355933777991e1e98cb70e2a05d04db8d0e83c45a9a217971d350d92fe"
     },
     "osm_rivers": {
-      "source": "Overpass API: [out:json][timeout:110];way[\"waterway\"=\"river\"][\"name\"~\"^(Fleuve\\ Saint\\-Laurent|Rivière\\ des\\ Prairies)( - .*)?$\"][\"tunnel\"!~\".\"](45.38,-74.0,45.72,-73.38);out geom;",
+      "source": "Overpass API: [out:json][timeout:110];way[\"waterway\"=\"river\"][\"name\"~\"^(Fleuve\\ Saint\\-Laurent|Rivière\\ des\\ Prairies|Rivière\\ des\\ Mille\\ Îles|Rivière\\ Richelieu)( - .*)?$\"][\"tunnel\"!~\".\"](45.3,-74.3,45.9,-73.08);out geom;",
       "how": "download",
-      "fetchedAt": "2026-10-06T13:05:59+00:00",
-      "bytes": 46361,
-      "sha256": "456e8563e7128839bb202f62adf5b769b22febf62d817d0dff53074a174256c4"
+      "fetchedAt": "2026-10-11T23:12:10+00:00",
+      "bytes": 105826,
+      "sha256": "726ec98abd1c7c10dd6cca40779f26e71b9c28d904f020eb898beabcf5dd4bf5"
     },
     "osm_bridges": {
-      "source": "Overpass API: [out:json][timeout:110];way[\"bridge\"][\"highway\"][\"highway\"!~\"^(motorway|motorway_link|trunk|trunk_link|construction|proposed)$\"][\"foot\"!=\"no\"](45.38,-74.0,45.72,-73.38);out geom;",
+      "source": "Overpass API: [out:json][timeout:110];way[\"bridge\"][\"highway\"][\"highway\"!~\"^(motorway|motorway_link|trunk|trunk_link|construction|proposed)$\"][\"foot\"!=\"no\"](45.3,-74.3,45.9,-73.08);out geom;",
       "how": "download",
-      "fetchedAt": "2026-10-06T13:06:03+00:00",
-      "bytes": 1254994,
-      "sha256": "dac4f15c395d9b1ff81657ceff007d13145eacc17d11723eb7e5f5f7d215c55b"
+      "fetchedAt": "2026-10-11T23:12:15+00:00",
+      "bytes": 1828162,
+      "sha256": "9b20aaec3158261a63004eb37adbb52d7befbe3009233ed9c65ddf434f88bb3e"
     }
   },
   "railGeometry": "GTFS shapes.txt",
@@ -72,10 +81,11 @@
   "network": {
     "lines": {
       "metro": 5,
-      "bus": 203
+      "bus": 203,
+      "train": 5
     },
-    "stops": 5643,
-    "railStations": 89
+    "stops": 5677,
+    "railStations": 135
   },
   "stats": {
     "lines": [
@@ -113,15 +123,50 @@
         "color": "#73A400",
         "stations": 23,
         "headway": 4.8
+      },
+      {
+        "name": "exo1",
+        "mode": "train",
+        "color": "#F16179",
+        "stations": 18,
+        "headway": 30.0
+      },
+      {
+        "name": "exo2",
+        "mode": "train",
+        "color": "#FDD26E",
+        "stations": 14,
+        "headway": 30.0
+      },
+      {
+        "name": "exo3",
+        "mode": "train",
+        "color": "#999AC6",
+        "stations": 7,
+        "headway": 30.0
+      },
+      {
+        "name": "exo4",
+        "mode": "train",
+        "color": "#5AB6B2",
+        "stations": 9,
+        "headway": 30.0
+      },
+      {
+        "name": "exo5",
+        "mode": "train",
+        "color": "#CA5898",
+        "stations": 11,
+        "headway": 30.0
       }
     ],
-    "railStations": 89,
+    "railStations": 135,
     "busLines": 203,
     "center": "Place Émilie-Gamelin",
-    "within15": 34,
-    "within30": 88,
-    "farthestStation": "Anse-à-l'Orme",
-    "farthestMinutes": 44,
+    "within15": 22,
+    "within30": 58,
+    "farthestStation": "Hudson",
+    "farthestMinutes": 99,
     "ogTrip": {
       "name": "Jolicoeur",
       "lat": 45.457,

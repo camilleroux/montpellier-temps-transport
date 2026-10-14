@@ -17,7 +17,7 @@ Généré par `build_pages.py` à partir des fiches `sources/<ville>.json`.
 | [Lyon](lyon.json) | TCL | Licence Mobilités | 2026-10-04 (à la main) | 2026-10-03 → 2027-08-31 | 2026-10-06 |
 | [Marseille](marseille.json) | RTM | Licence Ouverte 2.0 | 2026-10-04 | 2026-10-03 → 2026-12-02 | 2026-11-03 |
 | [Montpellier](montpellier.json) | TaM | ODbL | 2026-10-03 | 2026-09-21 → 2026-12-31 | 2026-11-03 |
-| [Montréal](montreal.json) | STM et REM | CC BY 4.0 | 2026-10-06 | 2026-05-19 → 2026-12-31 | 2026-10-06 |
+| [Montréal](montreal.json) | STM, REM et exo | CC BY 4.0 | 2026-10-11 | 2026-05-19 → 2027-01-03 | 2026-10-13 |
 | [Nantes](nantes.json) | Naolib | Licence Ouverte 2.0 | 2026-10-04 | 2026-09-28 → 2026-12-28 | 2026-11-03 |
 | [Nice](nice.json) | Lignes d'Azur | Licence Ouverte 2.0 | 2026-10-04 | 2026-09-17 → 2026-12-31 | 2026-11-03 |
 | [Orléans](orleans.json) | TAO | Licence Ouverte 2.0 | 2026-10-06 | 2026-09-18 → 2027-01-03 | 2026-11-03 |
